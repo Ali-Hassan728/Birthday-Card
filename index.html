@@ -1551,24 +1551,6 @@ button:active{
     }
 }
 
-
-<style>
-/* Final viewport fit: preserve the original 900x600 card proportions and
-   uniformly scale the complete card so it always stays inside the screen. */
-@media (max-width: 700px) {
-  .book {
-    width: 900px !important;
-    height: 600px !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    margin: 0 !important;
-    flex: 0 0 900px;
-  }
-  .controls {
-    bottom: 8px !important;
-  }
-}
-</style>
 </style>
 
 </head>
@@ -2520,34 +2502,6 @@ document.getElementById("musicBtn").addEventListener("click", () => {
 
 </script>
 
-
-
-<script>
-(function(){
-  function fitBirthdayCard(){
-    const book = document.querySelector('.book');
-    if(!book) return;
-    const mobile = window.matchMedia('(max-width: 700px)').matches;
-    if(!mobile){
-      book.style.transform = '';
-      return;
-    }
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const horizontalSpace = Math.max(280, vw - 16);
-    const verticalSpace = Math.max(220, vh - 100);
-    const scaleByWidth = horizontalSpace / 900;
-    const scaleByHeight = verticalSpace / 600;
-    const scale = Math.min(scaleByWidth, scaleByHeight, 0.98);
-    book.style.transformOrigin = 'center center';
-    book.style.transform = 'scale(' + scale + ')';
-  }
-  window.addEventListener('resize', fitBirthdayCard, {passive:true});
-  window.addEventListener('orientationchange', function(){ setTimeout(fitBirthdayCard, 150); }, {passive:true});
-  window.addEventListener('load', fitBirthdayCard);
-  fitBirthdayCard();
-})();
-</script>
 
 </body>
 
