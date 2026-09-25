@@ -1202,97 +1202,98 @@ button:active{
 
 @media(max-width:700px){
 
-    /* Responsive phone layout: keeps the whole card visible */
     .book{
+
         width:94vw;
-        height:min(600px, calc(100svh - 155px));
-        min-height:0;
-        max-height:600px;
+
+        height:67vh;
+
+        min-height:450px;
     }
+
 
     .cover-title{
+
         font-size:30px;
-        top:18px;
-        padding:0 10px;
+
+        top:22px;
     }
 
+
     .cover-photo{
-        width:82px;
-        height:82px;
-        bottom:92px;
+
+        width:92px;
+        height:92px;
+
+        bottom:86px;
     }
 
     .cover-photo.left{
-        left:58px;
+        left:18px;
     }
 
     .cover-photo.right{
-        right:58px;
+        right:18px;
     }
+
 
     .teddy{
-        transform:scale(.60);
-        margin-top:8px;
+
+        transform:scale(.72);
+
+        margin-top:15px;
     }
 
-    .cover-subtitle{
-        bottom:22px;
-        font-size:12px;
-        letter-spacing:2px;
-    }
 
     .title{
-        font-size:27px;
-        margin-bottom:12px;
+
+        font-size:29px;
+
+        margin-bottom:15px;
     }
+
 
     .wish{
-        max-width:280px;
-        font-size:14.5px;
-        line-height:1.38;
+
+        font-size:15.5px;
+
+        line-height:1.45;
     }
+
 
     .cursive{
-        font-size:18px;
-        line-height:1.25;
-        margin-top:12px;
+
+        font-size:19px;
+
+        line-height:1.3;
+
+        margin-top:15px;
     }
+
 
     .inside{
-        padding:22px 14px;
+
+        padding:30px 18px;
     }
 
-    .final-decor{
-        font-size:28px;
-        margin-bottom:14px;
-    }
 
     .final-title{
+
         font-size:36px;
     }
 
+
     .final-line{
-        font-size:25px;
-        margin-top:18px;
+
+        font-size:27px;
     }
 
-    .final-ending{
-        font-size:30px;
-        margin-top:12px;
-    }
-
-    .controls{
-        bottom:10px;
-        gap:8px;
-        width:100%;
-        justify-content:center;
-        padding:0 8px;
-    }
 
     button{
-        padding:9px 15px;
+
+        padding:9px 18px;
+
         font-size:15px;
-        white-space:nowrap;
     }
 
 
@@ -1336,219 +1337,221 @@ button:active{
 }
 
 
+/* =====================================================
+   RESPONSIVE DEVICE FIT — MOBILE + LAPTOP
+   Keeps the complete card inside the visible viewport.
+===================================================== */
+@media (max-width:700px){
 
-/* =========================
-   FINAL MOBILE PORTRAIT FIX
-   Keeps the complete card visible on phones
-========================= */
-@media (max-width: 700px) {
-    html, body {
-        width: 100%;
-        min-width: 0;
-        height: 100%;
-        min-height: 100%;
-        overflow: hidden;
-    }
+  html, body{
+    width:100%;
+    height:100%;
+    min-height:100%;
+    overflow:hidden;
+  }
 
-    body {
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+  }
 
-    .book {
-        width: calc(100vw - 18px);
-        height: min(600px, calc(100svh - 115px));
-        min-height: 0;
-        max-height: calc(100svh - 115px);
-        margin: 0 auto;
-    }
+  .book{
+    width:96vw;
+    height:min(84vh, calc(96vw / 0.62));
+    min-height:0;
+    max-height:calc(100vh - 78px);
+    margin:0;
+    perspective:none;
+  }
 
-    .cover {
-        width: 100%;
-        height: 100%;
-    }
+  /* Portrait front cover on phones */
+  .cover,
+  .final,
+  .spread{
+    border-radius:16px;
+  }
 
-    .cover-title {
-        top: 18px;
-        font-size: clamp(25px, 7.2vw, 34px);
-        line-height: 1.05;
-        padding: 0 8px;
-        white-space: nowrap;
-    }
+  .cover-title{
+    top:4.2%;
+    left:3%;
+    width:94%;
+    font-size:clamp(24px, 7.2vw, 34px);
+    line-height:1.08;
+  }
 
-    /* The old teddy animation replaced the mobile scale transform.
-       Disable it so the teddy really scales down on phones. */
-    .teddy {
-        animation: none !important;
-        transform: scale(.78) !important;
-        transform-origin: center center;
-        margin-top: 18px;
-    }
+  .teddy{
+    width:250px;
+    height:290px;
+    margin:0;
+    flex:none;
+    transform:scale(.76);
+    transform-origin:center center;
+    animation:none;
+  }
 
-    .cover-photo {
-        width: clamp(70px, 20vw, 88px);
-        height: clamp(70px, 20vw, 88px);
-        bottom: 92px;
-        padding: 4px;
-        border-width: 2px;
-    }
+  .cover-photo{
+    width:clamp(78px, 22vw, 100px);
+    height:clamp(78px, 22vw, 100px);
+    bottom:19%;
+    padding:4px;
+    border-radius:10px;
+  }
 
-    .cover-photo.left {
-        left: calc(50% - 174px);
-        transform: rotate(-5deg);
-    }
+  .cover-photo.left{
+    left:4.5%;
+    transform:rotate(-5deg);
+  }
 
-    .cover-photo.right {
-        right: calc(50% - 174px);
-        transform: rotate(5deg);
-    }
+  .cover-photo.right{
+    right:4.5%;
+    transform:rotate(5deg);
+  }
 
-    .cover-subtitle {
-        bottom: 19px;
-        font-size: clamp(10px, 3vw, 13px);
-        letter-spacing: 1.7px;
-        white-space: nowrap;
-    }
+  .cover-subtitle{
+    bottom:5.2%;
+    width:100%;
+    text-align:center;
+    padding:0 8px;
+    font-size:clamp(11px, 3.1vw, 15px);
+    letter-spacing:2px;
+  }
 
-    .controls {
-        bottom: 7px;
-        gap: 7px;
-        width: 100%;
-        padding: 0 7px;
-    }
+  /* Keep navigation inside the phone viewport */
+  .controls{
+    position:fixed;
+    left:50%;
+    bottom:8px;
+    width:96vw;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    z-index:1000;
+  }
 
-    button {
-        padding: 8px 12px;
-        font-size: clamp(14px, 4vw, 16px);
-        min-width: 0;
-    }
+  button{
+    min-width:0;
+    padding:9px 13px;
+    font-size:clamp(13px, 3.8vw, 16px);
+    white-space:nowrap;
+  }
 
-    /* Two-page spreads: keep both pages inside the phone viewport. */
-    .spread {
-        width: 100%;
-        height: 100%;
-    }
+  /* Mobile spreads: both pages stay completely inside the screen */
+  .spread{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+  }
 
-    .paper {
-        min-width: 0;
-        width: 50%;
-    }
+  .paper{
+    height:100%;
+    min-width:0;
+  }
 
-    .inside {
-        padding: 24px 10px 28px;
-    }
+  .inside{
+    padding:26px 12px 22px;
+  }
 
-    .inside::before {
-        inset: 9px;
-    }
+  .inside::before{
+    inset:10px;
+  }
 
-    .decor {
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
+  .decor{
+    font-size:19px;
+    margin-bottom:6px;
+  }
 
-    .title {
-        font-size: clamp(22px, 6vw, 28px);
-        line-height: 1.05;
-        margin-bottom: 10px;
-    }
+  .title{
+    font-size:clamp(21px, 6.2vw, 29px);
+    line-height:1.08;
+    margin-bottom:10px;
+  }
 
-    .wish {
-        width: 100%;
-        max-width: none;
-        font-size: clamp(12px, 3.2vw, 15px);
-        line-height: 1.27;
-    }
+  .wish{
+    max-width:100%;
+    font-size:clamp(12px, 3.5vw, 15px);
+    line-height:1.28;
+  }
 
-    .cursive {
-        margin-top: 8px;
-        font-size: clamp(15px, 4vw, 19px);
-        line-height: 1.15;
-    }
+  .cursive{
+    margin-top:10px;
+    font-size:clamp(15px, 4.3vw, 19px);
+    line-height:1.2;
+  }
 
-    .number {
-        bottom: 8px;
-        font-size: 10px;
-    }
+  .number{
+    bottom:10px;
+    font-size:10px;
+    letter-spacing:1px;
+  }
 
-    .corner-design {
-        transform: scale(.55);
-        transform-origin: top left;
-    }
+  .corner-design{
+    transform:scale(.58);
+    transform-origin:top left;
+  }
 
-    .corner-design.top-right {
-        transform: rotate(90deg) scale(.55);
-        transform-origin: top right;
-    }
+  .corner-design.top-right{
+    transform:rotate(90deg) scale(.58);
+    transform-origin:top right;
+  }
 
-    .corner-design.bottom-right {
-        transform: rotate(180deg) scale(.55);
-        transform-origin: bottom right;
-    }
+  .corner-design.bottom-right{
+    transform:rotate(180deg) scale(.58);
+    transform-origin:bottom right;
+  }
 
-    .corner-design.bottom-left {
-        transform: rotate(270deg) scale(.55);
-        transform-origin: bottom left;
-    }
+  .corner-design.bottom-left{
+    transform:rotate(270deg) scale(.58);
+    transform-origin:bottom left;
+  }
 
-    .final {
-        padding: 25px 15px;
-    }
+  .final-decor{
+    font-size:24px;
+    margin-bottom:12px;
+  }
 
-    .final-decor {
-        font-size: 25px;
-        margin-bottom: 10px;
-    }
+  .final-title{
+    font-size:clamp(30px, 9vw, 42px);
+    line-height:1.15;
+  }
 
-    .final-title {
-        font-size: clamp(31px, 9vw, 42px);
-    }
+  .final-line{
+    margin-top:16px;
+    font-size:clamp(22px, 6.5vw, 30px);
+  }
 
-    .final-line {
-        margin-top: 18px;
-        font-size: clamp(23px, 7vw, 32px);
-    }
-
-    .final-ending {
-        font-size: clamp(27px, 8vw, 36px);
-        margin-top: 10px;
-    }
+  .final-ending{
+    font-size:28px;
+    margin-top:10px;
+  }
 }
 
-/* Very narrow phones */
-@media (max-width: 390px) {
-    .book {
-        width: calc(100vw - 12px);
-        height: min(560px, calc(100svh - 108px));
-        max-height: calc(100svh - 108px);
-    }
+/* Extra-small phones */
+@media (max-width:380px){
+  .book{
+    width:97vw;
+    height:min(82vh, calc(97vw / 0.62));
+  }
 
-    .teddy {
-        transform: scale(.70) !important;
-    }
+  .teddy{
+    transform:scale(.68);
+  }
 
-    .cover-photo.left {
-        left: calc(50% - 158px);
-    }
+  .cover-photo{
+    width:76px;
+    height:76px;
+    bottom:18%;
+  }
 
-    .cover-photo.right {
-        right: calc(50% - 158px);
-    }
+  .controls{
+    gap:5px;
+  }
 
-    .inside {
-        padding-left: 7px;
-        padding-right: 7px;
-    }
-
-    .wish {
-        font-size: 11.5px;
-    }
-
-    .cursive {
-        font-size: 14px;
-    }
+  button{
+    padding:8px 10px;
+    font-size:13px;
+  }
 }
 
 </style>
