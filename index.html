@@ -1097,7 +1097,9 @@ body{
 
     left:50%;
 
-    bottom:25px;
+    top:calc(50% + min(300px, 39vh) + 14px);
+
+    bottom:auto;
 
     transform:translateX(-50%);
 
@@ -1230,6 +1232,10 @@ button:active{
         padding:9px 18px;
 
         font-size:15px;
+    }
+
+    .controls{
+        top:calc(50% + 33.5vh + 10px);
     }
 
 
@@ -1907,6 +1913,12 @@ button:active{
 
     </button>
 
+    <button id="musicBtn" type="button">
+
+        🎵 Play Music
+
+    </button>
+
 
 </div>
 
@@ -2059,6 +2071,152 @@ document.addEventListener(
 
     }
 );
+
+
+/* =========================
+   ELEGANT BIRTHDAY MUSIC
+========================= */
+
+let audioContext = null;
+let musicTimer = null;
+let musicPlaying = false;
+let melodyIndex = 0;
+
+const BPM = 82;
+const BEAT = 60 / BPM;
+
+const noteFrequencies = {
+    "C3":130.81,"D3":146.83,"E3":164.81,"F3":174.61,"G3":196.00,"A3":220.00,"B3":246.94,
+    "C4":261.63,"D4":293.66,"E4":329.63,"F4":349.23,"G4":392.00,"A4":440.00,"B4":493.88,
+    "C5":523.25,"D5":587.33,"E5":659.25,"F5":698.46,"G5":783.99,"A5":880.00,"B5":987.77,
+    "C6":1046.50
+};
+
+/* Familiar birthday melody at a normal, mature tempo */
+const birthdayMelody = [
+    ["G4",1], ["G4",0.5], ["A4",1], ["G4",1], ["C5",1], ["B4",2],
+    ["G4",1], ["G4",0.5], ["A4",1], ["G4",1], ["D5",1], ["C5",2],
+    ["G4",1], ["G4",0.5], ["G5",1], ["E5",1], ["C5",1], ["B4",1], ["A4",2],
+    ["F5",1], ["F5",0.5], ["E5",1], ["C5",1], ["D5",1], ["C5",2]
+];
+
+const chordProgression = [
+    ["C3","E4","G4"], ["G3","B4","D5"],
+    ["C3","E4","G4"], ["F3","A4","C5"],
+    ["C3","E4","G4"], ["G3","B4","D5"],
+    ["C3","E4","G4"], ["F3","A4","C5"]
+];
+
+function tone(note, start, duration, type="triangle", volume=0.055){
+    if(!audioContext || !musicPlaying) return;
+
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    const filter = audioContext.createBiquadFilter();
+
+    osc.type = type;
+    osc.frequency.value = noteFrequencies[note];
+
+    filter.type = "lowpass";
+    filter.frequency.value = type === "sine" ? 1900 : 2800;
+
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.exponentialRampToValueAtTime(volume, start + 0.035);
+    gain.gain.exponentialRampToValueAtTime(
+        Math.max(volume * 0.45, 0.0002),
+        start + duration * 0.55
+    );
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(audioContext.destination);
+
+    osc.start(start);
+    osc.stop(start + duration + 0.05);
+}
+
+function schedulePhrase(){
+    if(!audioContext || !musicPlaying) return;
+
+    const start = audioContext.currentTime + 0.08;
+    let cursor = 0;
+
+    birthdayMelody.forEach(([note, beats]) => {
+        const t = start + cursor * BEAT;
+
+        /* Main warm piano-like melody */
+        tone(note, t, beats * BEAT * 0.90, "triangle", 0.062);
+
+        /* Very subtle upper shimmer on longer notes */
+        if(beats >= 1.5){
+            const upper = note === "C5" ? "C6" : note === "G4" ? "G5" : null;
+            if(upper){
+                tone(upper, t + 0.035, beats * BEAT * 0.50, "sine", 0.013);
+            }
+        }
+
+        cursor += beats;
+    });
+
+    /* Quiet, sustained harmony */
+    chordProgression.forEach((chord, i) => {
+        const t = start + i * BEAT * 4;
+
+        chord.forEach((note, j) => {
+            tone(
+                note,
+                t + j * 0.025,
+                BEAT * 3.75,
+                j === 0 ? "sine" : "triangle",
+                j === 0 ? 0.018 : 0.010
+            );
+        });
+    });
+
+    /* Small elegant chimes, not childish */
+    tone("G5", start + 7 * BEAT, BEAT * 0.65, "sine", 0.017);
+    tone("C6", start + 15 * BEAT, BEAT * 0.65, "sine", 0.015);
+
+    const phraseLength = cursor * BEAT;
+    musicTimer = setTimeout(schedulePhrase, phraseLength * 1000 + 120);
+}
+
+async function startBirthdayMusic(){
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+    if(audioContext.state === "suspended"){
+        await audioContext.resume();
+    }
+
+    musicPlaying = true;
+    melodyIndex = 0;
+    document.getElementById("musicBtn").textContent = "🔊 Music On";
+
+    clearTimeout(musicTimer);
+    schedulePhrase();
+}
+
+function stopBirthdayMusic(){
+    musicPlaying = false;
+    clearTimeout(musicTimer);
+    musicTimer = null;
+
+    if(audioContext){
+        audioContext.close();
+        audioContext = null;
+    }
+
+    document.getElementById("musicBtn").textContent = "🎵 Play Music";
+}
+
+document.getElementById("musicBtn").addEventListener("click", () => {
+    if(musicPlaying){
+        stopBirthdayMusic();
+    }else{
+        startBirthdayMusic();
+    }
+});
 
 </script>
 
