@@ -1705,6 +1705,53 @@ button:active{
     }
 }
 
+
+/* Mobile wish-page corner decoration fix */
+@media (max-width:700px){
+    .mobile-page .corner-design{
+        display:block !important;
+        position:absolute;
+        width:76px;
+        height:76px;
+        z-index:5;
+        pointer-events:none;
+        opacity:.9;
+    }
+
+    .mobile-page .corner-design.top-left{
+        top:0;
+        left:0;
+        transform:none !important;
+        border-top-left-radius:16px;
+    }
+
+    .mobile-page .corner-design.top-right{
+        top:0;
+        right:0;
+        transform:rotate(90deg) !important;
+        transform-origin:top right !important;
+    }
+
+    .mobile-page .corner-design.bottom-right{
+        bottom:0;
+        right:0;
+        transform:rotate(180deg) !important;
+        transform-origin:bottom right !important;
+    }
+
+    .mobile-page .corner-design.bottom-left{
+        bottom:0;
+        left:0;
+        transform:rotate(270deg) !important;
+        transform-origin:bottom left !important;
+    }
+
+    .mobile-page .corner-dot,
+    .mobile-page .corner-glow{
+        display:block !important;
+    }
+}
+
 </style>
 
 </head>
