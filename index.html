@@ -634,12 +634,12 @@ body{
 }
 
 .cover-photo.left{
-    left:54px;
+    left:170px;
     transform:rotate(-5deg);
 }
 
 .cover-photo.right{
-    right:54px;
+    right:170px;
     transform:rotate(5deg);
 }
 
@@ -1202,98 +1202,97 @@ button:active{
 
 @media(max-width:700px){
 
+    /* Responsive phone layout: keeps the whole card visible */
     .book{
-
         width:94vw;
-
-        height:67vh;
-
-        min-height:450px;
+        height:min(600px, calc(100svh - 155px));
+        min-height:0;
+        max-height:600px;
     }
-
 
     .cover-title{
-
         font-size:30px;
-
-        top:22px;
+        top:18px;
+        padding:0 10px;
     }
 
-
     .cover-photo{
-
-        width:92px;
-        height:92px;
-
-        bottom:86px;
+        width:82px;
+        height:82px;
+        bottom:92px;
     }
 
     .cover-photo.left{
-        left:8px;
+        left:58px;
     }
 
     .cover-photo.right{
-        right:8px;
+        right:58px;
     }
-
 
     .teddy{
-
-        transform:scale(.72);
-
-        margin-top:15px;
+        transform:scale(.60);
+        margin-top:8px;
     }
 
+    .cover-subtitle{
+        bottom:22px;
+        font-size:12px;
+        letter-spacing:2px;
+    }
 
     .title{
-
-        font-size:29px;
-
-        margin-bottom:15px;
+        font-size:27px;
+        margin-bottom:12px;
     }
-
 
     .wish{
-
-        font-size:15.5px;
-
-        line-height:1.45;
+        max-width:280px;
+        font-size:14.5px;
+        line-height:1.38;
     }
-
 
     .cursive{
-
-        font-size:19px;
-
-        line-height:1.3;
-
-        margin-top:15px;
+        font-size:18px;
+        line-height:1.25;
+        margin-top:12px;
     }
-
 
     .inside{
-
-        padding:30px 18px;
+        padding:22px 14px;
     }
 
+    .final-decor{
+        font-size:28px;
+        margin-bottom:14px;
+    }
 
     .final-title{
-
         font-size:36px;
     }
 
-
     .final-line{
-
-        font-size:27px;
+        font-size:25px;
+        margin-top:18px;
     }
 
+    .final-ending{
+        font-size:30px;
+        margin-top:12px;
+    }
+
+    .controls{
+        bottom:10px;
+        gap:8px;
+        width:100%;
+        justify-content:center;
+        padding:0 8px;
+    }
 
     button{
-
-        padding:9px 18px;
-
+        padding:9px 15px;
         font-size:15px;
+        white-space:nowrap;
     }
 
 
