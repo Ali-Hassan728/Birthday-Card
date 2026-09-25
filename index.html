@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Maliha 🎂</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,255,255,.85),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(255,205,220,.65),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fae7ed,
+            #f5d8e1,
+            #eadbed
+        );
+
+    font-family:'Cormorant Garamond',serif;
+}
+
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+.float{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    color:rgba(255,255,255,.8);
+
+    animation:floatUp linear infinite;
+}
+
+
+@keyframes floatUp{
+
+    from{
+
+        transform:
+            translateY(110vh)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+
+        transform:
+            translateY(-15vh)
+            rotate(360deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   BOOK
+========================= */
+
+.book{
+
+    position:relative;
+
+    width:min(900px,92vw);
+
+    height:min(600px,78vh);
+
+    min-height:480px;
+
+    margin:auto;
+
+    perspective:1800px;
+}
+
+
+/* =========================
+   SPREAD
+========================= */
+
+.spread{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:stretch;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:scale(.96);
+
+    transition:
+        opacity .65s ease,
+        transform .65s ease,
+        visibility .65s;
+
+    z-index:1;
+}
+
+
+.spread.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:scale(1);
+
+    z-index:20;
+}
+
+
+/* =========================
+   FRONT COVER
+========================= */
+
+.cover{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    border-radius:9px 18px 18px 9px;
+
+    background:
+
+        radial-gradient(
+            circle at 25% 15%,
+            rgba(255,255,255,.8),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            145deg,
+            #fff0f4,
+            #f8d8e3 52%,
+            #e9d8eb
+        );
+
+    box-shadow:
+        0 20px 55px rgba(76,44,58,.28);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+
+.cover::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:430px;
+    height:430px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.75);
+
+    top:-230px;
+    left:-200px;
+}
+
+
+.cover::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:330px;
+    height:330px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.7);
+
+    bottom:-190px;
+    right:-150px;
+}
+
+
+/* =========================
+   COVER TITLE
+========================= */
+
+.cover-title{
+
+    position:absolute;
+
+    top:30px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:40px;
+
+    font-weight:700;
+
+    color:#875267;
+
+    z-index:20;
+}
+
+
+/* =========================
+   TEDDY
+========================= */
+
+.teddy{
+
+    position:relative;
+
+    width:250px;
+    height:290px;
+
+    margin-top:35px;
+
+    animation:teddyFloat 3s ease-in-out infinite;
+
+    z-index:5;
+}
+
+
+@keyframes teddyFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-7px);
+    }
+}
+
+
+/* ears */
+
+.ear{
+
+    position:absolute;
+
+    width:72px;
+    height:72px;
+
+    border-radius:50%;
+
+    background:#b87960;
+
+    top:10px;
+}
+
+
+.ear.left{
+    left:25px;
+}
+
+
+.ear.right{
+    right:25px;
+}
+
+
+.ear::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:14px;
+
+    border-radius:50%;
+
+    background:#e5a38d;
+}
+
+
+/* head */
+
+.head{
+
+    position:absolute;
+
+    width:160px;
+    height:150px;
+
+    background:#c98970;
+
+    border-radius:48% 48% 45% 45%;
+
+    left:45px;
+    top:35px;
+
+    z-index:2;
+
+    box-shadow:
+        inset -8px -9px rgba(116,68,55,.12);
+}
+
+
+/* eyes */
+
+.eye{
+
+    position:absolute;
+
+    width:12px;
+    height:15px;
+
+    background:#3e2927;
+
+    border-radius:50%;
+
+    top:59px;
+}
+
+
+.eye.left{
+    left:47px;
+}
+
+
+.eye.right{
+    right:47px;
+}
+
+
+/* muzzle */
+
+.muzzle{
+
+    position:absolute;
+
+    width:68px;
+    height:50px;
+
+    background:#edc0a9;
+
+    border-radius:50%;
+
+    left:46px;
+    top:79px;
+}
+
+
+.nose{
+
+    position:absolute;
+
+    width:18px;
+    height:13px;
+
+    background:#53322d;
+
+    border-radius:50%;
+
+    left:25px;
+    top:10px;
+}
+
+
+.mouth{
+
+    position:absolute;
+
+    width:21px;
+    height:10px;
+
+    border-bottom:2px solid #53322d;
+
+    border-radius:50%;
+
+    left:23px;
+    top:20px;
+}
+
+
+/* body */
+
+.body{
+
+    position:absolute;
+
+    width:140px;
+    height:135px;
+
+    background:#c98970;
+
+    border-radius:48%;
+
+    left:55px;
+    top:160px;
+
+    box-shadow:
+        inset -8px -10px rgba(116,68,55,.12);
+}
+
+
+/* arms */
+
+.arm{
+
+    position:absolute;
+
+    width:52px;
+    height:110px;
+
+    background:#b87960;
+
+    border-radius:40px;
+
+    top:155px;
+
+    z-index:3;
+}
+
+
+.arm.left{
+
+    left:18px;
+
+    transform:rotate(23deg);
+}
+
+
+.arm.right{
+
+    right:18px;
+
+    transform:rotate(-23deg);
+}
+
+
+/* feet */
+
+.foot{
+
+    position:absolute;
+
+    width:62px;
+    height:46px;
+
+    background:#b87960;
+
+    border-radius:50%;
+
+    bottom:-8px;
+}
+
+
+.foot.left{
+    left:43px;
+}
+
+
+.foot.right{
+    right:43px;
+}
+
+
+/* =========================
+   CARD IN TEDDY HANDS
+========================= */
+
+.teddy-card{
+
+    position:absolute;
+
+    width:205px;
+    height:135px;
+
+    left:22px;
+    top:137px;
+
+    z-index:10;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdfb,
+            #fff0f4
+        );
+
+    border:2px solid rgba(208,145,164,.45);
+
+    border-radius:8px;
+
+    box-shadow:
+        0 10px 20px rgba(83,48,61,.22);
+
+    transform:rotate(-3deg);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+
+/* ONLY HAPPY BIRTHDAY MALIHA */
+
+.card-main{
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:29px;
+
+    line-height:1.05;
+
+    text-align:center;
+
+    font-weight:700;
+
+    color:#8e5267;
+
+    margin-top:0;
+}
+
+
+/* EMOJIS ARE KEPT */
+
+.card-emoji{
+
+    font-size:20px;
+
+    margin-top:8px;
+}
+
+
+/* =========================
+   COVER SUBTITLE
+========================= */
+
+.cover-subtitle{
+
+    position:absolute;
+
+    bottom:30px;
+
+    font-size:15px;
+
+    letter-spacing:3px;
+
+    color:#956a77;
+}
+
+
+/* =========================
+   TWO PAGE PAPER
+========================= */
+
+.paper{
+
+    width:50%;
+    height:100%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.055),
+            transparent 8%,
+            transparent 92%,
+            rgba(0,0,0,.025)
+        ),
+
+        #fffaf6;
+
+    box-shadow:
+        0 15px 40px rgba(75,43,55,.20);
+}
+
+
+.paper.left{
+
+    border-radius:12px 0 0 12px;
+
+    border-right:
+        1px solid rgba(120,80,90,.12);
+}
+
+
+.paper.right{
+
+    border-radius:0 12px 12px 0;
+}
+
+
+/* =========================
+   BOOK MIDDLE
+========================= */
+
+.spread::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:0;
+
+    height:100%;
+    width:2px;
+
+    transform:translateX(-50%);
+
+    background:
+
+        linear-gradient(
+            to right,
+            rgba(80,50,60,.13),
+            rgba(255,255,255,.7),
+            rgba(80,50,60,.08)
+        );
+
+    z-index:10;
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   NEW COLORED CORNER DESIGN
+===================================================== */
+
+.corner-design{
+
+    position:absolute;
+
+    width:92px;
+    height:92px;
+
+    z-index:8;
+
+    pointer-events:none;
+
+    opacity:.95;
+}
+
+
+/* top left */
+
+.corner-design.top-left{
+
+    top:0;
+    left:0;
+}
+
+
+/* top right */
+
+.corner-design.top-right{
+
+    top:0;
+    right:0;
+
+    transform:rotate(90deg);
+}
+
+
+/* bottom right */
+
+.corner-design.bottom-right{
+
+    bottom:0;
+    right:0;
+
+    transform:rotate(180deg);
+}
+
+
+/* bottom left */
+
+.corner-design.bottom-left{
+
+    bottom:0;
+    left:0;
+
+    transform:rotate(270deg);
+}
+
+
+/* main ribbon */
+
+.corner-design::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:78px;
+    height:78px;
+
+    top:-20px;
+    left:-20px;
+
+    border-radius:
+        0 0 78px 0;
+
+    border-bottom:
+        7px solid #c997ad;
+
+    border-right:
+        7px solid #b69bc8;
+
+    opacity:.9;
+
+    filter:
+        drop-shadow(
+            0 2px 3px
+            rgba(126,82,105,.12)
+        );
+}
+
+
+/* second ribbon */
+
+.corner-design::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:57px;
+    height:57px;
+
+    top:-12px;
+    left:-12px;
+
+    border-radius:
+        0 0 57px 0;
+
+    border-bottom:
+        4px solid rgba(218,169,184,.9);
+
+    border-right:
+        4px solid rgba(174,145,199,.85);
+
+    opacity:.85;
+}
+
+
+/* small diamond */
+
+.corner-dot{
+
+    position:absolute;
+
+    width:11px;
+    height:11px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #d8a7b9,
+            #b39ac8
+        );
+
+    transform:rotate(45deg);
+
+    top:24px;
+    left:24px;
+
+    border-radius:2px;
+
+    box-shadow:
+        0 2px 7px rgba(137,91,115,.22);
+}
+
+
+/* soft glow */
+
+.corner-glow{
+
+    position:absolute;
+
+    width:35px;
+    height:35px;
+
+    top:8px;
+    left:8px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(232,193,207,.45),
+            transparent 70%
+        );
+}
+
+
+/* =========================
+   PAGE CONTENT
+========================= */
+
+.inside{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:45px 40px;
+}
+
+
+.inside::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:16px;
+
+    border:
+        1px solid rgba(171,118,132,.20);
+
+    border-radius:8px;
+
+    pointer-events:none;
+}
+
+
+/* =========================
+   PAGE DECOR
+========================= */
+
+.decor{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+}
+
+
+.title{
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:37px;
+
+    color:#92566c;
+
+    margin-bottom:20px;
+}
+
+
+.wish{
+
+    max-width:330px;
+
+    font-size:18px;
+
+    line-height:1.5;
+
+    color:#634a52;
+}
+
+
+.cursive{
+
+    margin-top:18px;
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:23px;
+
+    line-height:1.35;
+
+    color:#986175;
+}
+
+
+.number{
+
+    position:absolute;
+
+    bottom:19px;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    color:#b08391;
+}
+
+
+/* =========================
+   FINAL PAGE
+========================= */
+
+.final{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:scale(.96);
+
+    transition:
+        opacity .65s ease,
+        transform .65s ease,
+        visibility .65s;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(255,255,255,.75),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            145deg,
+            #fff0f4,
+            #f8d8e3,
+            #ead9ed
+        );
+
+    border-radius:10px;
+
+    box-shadow:
+        0 20px 55px rgba(76,44,58,.25);
+}
+
+
+.final.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:scale(1);
+
+    z-index:30;
+}
+
+
+.final-decor{
+
+    font-size:35px;
+
+    margin-bottom:22px;
+}
+
+
+.final-title{
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:49px;
+
+    line-height:1.25;
+
+    color:#8d5369;
+}
+
+
+.final-line{
+
+    margin-top:28px;
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:34px;
+
+    color:#a06678;
+}
+
+
+/* No hearts here */
+
+.final-ending{
+
+    font-size:38px;
+
+    margin-top:18px;
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:14px;
+
+    z-index:100;
+}
+
+
+button{
+
+    border:none;
+
+    padding:11px 25px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.90);
+
+    color:#825365;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 18px rgba(80,48,60,.16);
+
+    transition:.25s;
+}
+
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    background:#fff;
+}
+
+
+button:active{
+
+    transform:scale(.96);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .book{
+
+        width:94vw;
+
+        height:67vh;
+
+        min-height:450px;
+    }
+
+
+    .cover-title{
+
+        font-size:30px;
+
+        top:22px;
+    }
+
+
+    .teddy{
+
+        transform:scale(.72);
+
+        margin-top:15px;
+    }
+
+
+    .title{
+
+        font-size:29px;
+
+        margin-bottom:15px;
+    }
+
+
+    .wish{
+
+        font-size:15.5px;
+
+        line-height:1.45;
+    }
+
+
+    .cursive{
+
+        font-size:19px;
+
+        line-height:1.3;
+
+        margin-top:15px;
+    }
+
+
+    .inside{
+
+        padding:30px 18px;
+    }
+
+
+    .final-title{
+
+        font-size:36px;
+    }
+
+
+    .final-line{
+
+        font-size:27px;
+    }
+
+
+    button{
+
+        padding:9px 18px;
+
+        font-size:15px;
+    }
+
+
+    .corner-design{
+
+        transform:scale(.75);
+
+        transform-origin:top left;
+    }
+
+
+    .corner-design.top-right{
+
+        transform:
+            rotate(90deg)
+            scale(.75);
+
+        transform-origin:top right;
+    }
+
+
+    .corner-design.bottom-right{
+
+        transform:
+            rotate(180deg)
+            scale(.75);
+
+        transform-origin:bottom right;
+    }
+
+
+    .corner-design.bottom-left{
+
+        transform:
+            rotate(270deg)
+            scale(.75);
+
+        transform-origin:bottom left;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     FLOATING DECORATIONS
+========================= -->
+
+<div class="float"
+     style="left:8%;animation-duration:12s;">
+    ♡
+</div>
+
+<div class="float"
+     style="left:20%;animation-duration:15s;animation-delay:2s;">
+    ✦
+</div>
+
+<div class="float"
+     style="left:35%;animation-duration:13s;animation-delay:4s;">
+    ♡
+</div>
+
+<div class="float"
+     style="left:57%;animation-duration:16s;animation-delay:1s;">
+    ✧
+</div>
+
+<div class="float"
+     style="left:74%;animation-duration:14s;animation-delay:5s;">
+    ♡
+</div>
+
+<div class="float"
+     style="left:90%;animation-duration:17s;animation-delay:3s;">
+    ✦
+</div>
+
+
+
+<div class="book">
+
+
+<!-- =========================
+     FRONT COVER
+========================= -->
+
+<div class="cover" id="cover">
+
+
+    <div class="cover-title">
+        Happy Birthday Maliha ✨
+    </div>
+
+
+
+    <div class="teddy">
+
+
+        <div class="ear left"></div>
+
+        <div class="ear right"></div>
+
+
+        <div class="head">
+
+
+            <div class="eye left"></div>
+
+            <div class="eye right"></div>
+
+
+            <div class="muzzle">
+
+
+                <div class="nose"></div>
+
+                <div class="mouth"></div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="body"></div>
+
+
+        <div class="arm left"></div>
+
+        <div class="arm right"></div>
+
+
+        <div class="foot left"></div>
+
+        <div class="foot right"></div>
+
+
+
+        <!-- =========================
+             CARD IN TEDDY HANDS
+        ========================= -->
+
+        <div class="teddy-card">
+
+
+            <div class="card-main">
+
+                Happy Birthday<br>
+
+                Maliha
+
+            </div>
+
+
+            <!-- EMOJIS KEPT -->
+
+            <div class="card-emoji">
+
+                🎂 ✨ 💐
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="cover-subtitle">
+
+        A little birthday surprise for you ♡
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =================================================
+     SPREAD 1
+================================================= -->
+
+<div class="spread" id="spread1">
+
+
+    <!-- =========================
+         PAGE 1
+    ========================= -->
+
+    <div class="paper left">
+
+
+        <div class="inside">
+
+
+            <!-- CORNERS -->
+
+            <div class="corner-design top-left">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design top-right">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design bottom-left">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design bottom-right">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+
+            <div class="decor">
+
+                🌸 ✨ 🌸
+
+            </div>
+
+
+            <div class="title">
+
+                Best Wishes From Hassan
+
+            </div>
+
+
+            <div class="wish">
+
+                May your birthday bring you
+                beautiful moments, genuine
+                happiness and countless reasons
+                to smile.
+
+                <br><br>
+
+                May Allah always keep you happy,
+                bless your life with peace,
+                and fill your days with beautiful
+                moments and endless blessings.
+
+            </div>
+
+
+            <div class="cursive">
+
+                I hope this new chapter of your life
+                brings you many wonderful memories. 💫
+
+            </div>
+
+
+            <div class="number">
+
+                01
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         PAGE 2
+    ========================= -->
+
+    <div class="paper right">
+
+
+        <div class="inside">
+
+
+            <!-- CORNERS -->
+
+            <div class="corner-design top-left">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design top-right">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design bottom-left">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design bottom-right">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+
+            <div class="decor">
+
+                🎈 💖 🎂
+
+            </div>
+
+
+            <div class="title">
+
+                A Beautiful Year Ahead
+
+            </div>
+
+
+            <div class="wish">
+
+                May every new day bring you closer
+                to the things you dream about,
+                and may your efforts turn into
+                moments you can truly be proud of.
+
+                <br><br>
+
+                May Allah give you success in
+                everything you do and make your
+                future brighter, happier and more
+                beautiful than you imagine.
+
+            </div>
+
+
+            <div class="cursive">
+
+                Keep smiling, keep shining,
+                and enjoy every beautiful moment. 🌷
+
+            </div>
+
+
+            <div class="number">
+
+                02
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =================================================
+     SPREAD 2
+================================================= -->
+
+<div class="spread" id="spread2">
+
+
+    <!-- =========================
+         PAGE 3
+    ========================= -->
+
+    <div class="paper left">
+
+
+        <div class="inside">
+
+
+            <!-- CORNERS -->
+
+            <div class="corner-design top-left">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design top-right">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design bottom-left">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design bottom-right">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+
+            <div class="decor">
+
+                💐 ✨ 💐
+
+            </div>
+
+
+            <div class="title">
+
+                For Your Dreams
+
+            </div>
+
+
+            <div class="wish">
+
+                I hope you always have the courage
+                to follow your dreams, the strength
+                to overcome challenges, and the
+                happiness to enjoy the journey.
+
+                <br><br>
+
+                May Allah make your naseeb beautiful,
+                guide you towards the best paths,
+                and open doors of opportunities
+                for you wherever life takes you.
+
+            </div>
+
+
+            <div class="cursive">
+
+                May there always be something
+                beautiful waiting for you ahead. 🌙
+
+            </div>
+
+
+            <div class="number">
+
+                03
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         PAGE 4
+    ========================= -->
+
+    <div class="paper right">
+
+
+        <div class="inside">
+
+
+            <!-- CORNERS -->
+
+            <div class="corner-design top-left">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design top-right">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design bottom-left">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+            <div class="corner-design bottom-right">
+
+                <div class="corner-dot"></div>
+
+                <div class="corner-glow"></div>
+
+            </div>
+
+
+
+            <div class="decor">
+
+                🌷 💕 ✨
+
+            </div>
+
+
+            <div class="title">
+
+                Wishing You The Best
+
+            </div>
+
+
+            <div class="wish">
+
+                Some of the best memories are made
+                in the simplest moments, so I hope
+                this year gives you plenty of moments
+                that make you smile without even trying.
+
+                <br><br>
+
+                May Allah always protect you,
+                keep you healthy and peaceful,
+                and fill your life with happiness,
+                success and countless blessings.
+
+            </div>
+
+
+            <div class="cursive">
+
+                Wishing you happiness today,
+                tomorrow and throughout the year. ✨
+
+            </div>
+
+
+            <div class="number">
+
+                04
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =================================================
+     FINAL PAGE
+================================================= -->
+
+<div class="final" id="final">
+
+
+    <div class="final-decor">
+
+        🌸 ✨ 🎂 ✨ 🌸
+
+    </div>
+
+
+    <div class="final-title">
+
+        Once Again,<br>
+
+        Happy Birthday Maliha! 🎂✨
+
+    </div>
+
+
+    <div class="final-line">
+
+        From Hassan 😊
+
+    </div>
+
+
+    <!-- NO HEARTS -->
+
+    <div class="final-ending">
+
+        🎂 🎈 ✨ 🤗
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =================================================
+     CONTROLS
+================================================= -->
+
+<div class="controls">
+
+
+    <button id="prev">
+
+        ← Previous
+
+    </button>
+
+
+    <button id="next">
+
+        Next →
+
+    </button>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   GET ELEMENTS
+========================= */
+
+const cover =
+    document.getElementById("cover");
+
+const spread1 =
+    document.getElementById("spread1");
+
+const spread2 =
+    document.getElementById("spread2");
+
+const finalPage =
+    document.getElementById("final");
+
+
+/* =========================
+   ALL SCREENS
+========================= */
+
+const screens = [
+
+    cover,
+
+    spread1,
+
+    spread2,
+
+    finalPage
+
+];
+
+
+let current = 0;
+
+
+/* =========================
+   SHOW SCREEN
+========================= */
+
+function showScreen(index){
+
+    screens.forEach((screen,i)=>{
+
+        if(i === index){
+
+            screen.classList.add("active");
+
+        }
+
+        else{
+
+            screen.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   INITIAL SCREEN
+========================= */
+
+showScreen(0);
+
+
+/* =========================
+   NEXT BUTTON
+========================= */
+
+document
+    .getElementById("next")
+    .addEventListener("click",()=>{
+
+        if(current < screens.length - 1){
+
+            current++;
+
+            showScreen(current);
+
+        }
+
+    });
+
+
+/* =========================
+   PREVIOUS BUTTON
+========================= */
+
+document
+    .getElementById("prev")
+    .addEventListener("click",()=>{
+
+        if(current > 0){
+
+            current--;
+
+            showScreen(current);
+
+        }
+
+    });
+
+
+/* =========================
+   KEYBOARD CONTROLS
+========================= */
+
+document.addEventListener(
+    "keydown",
+    (event)=>{
+
+
+        if(event.key === "ArrowRight"){
+
+            if(current < screens.length - 1){
+
+                current++;
+
+                showScreen(current);
+
+            }
+
+        }
+
+
+        if(event.key === "ArrowLeft"){
+
+            if(current > 0){
+
+                current--;
+
+                showScreen(current);
+
+            }
+
+        }
+
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
