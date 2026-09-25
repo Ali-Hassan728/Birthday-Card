@@ -1554,6 +1554,157 @@ button:active{
   }
 }
 
+
+/* =====================================================
+   MOBILE: ONE WISH PAGE AT A TIME
+   Desktop spread layout is intentionally untouched.
+===================================================== */
+.mobile-page{
+    position:absolute;
+    inset:0;
+    display:flex;
+    opacity:0;
+    visibility:hidden;
+    transform:scale(.96);
+    transition:opacity .45s ease, transform .45s ease;
+    z-index:1;
+    border-radius:16px;
+    overflow:hidden;
+    background:#fffaf6;
+}
+
+.mobile-page.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
+    z-index:25;
+}
+
+.mobile-page .paper{
+    width:100%;
+    height:100%;
+    border-radius:16px;
+    border-right:none;
+}
+
+.mobile-page .inside{
+    width:100%;
+    height:100%;
+    padding:34px 24px 30px;
+}
+
+.mobile-page .wish{
+    max-width:520px;
+}
+
+@media (min-width:701px){
+    .mobile-page{
+        display:none !important;
+    }
+}
+
+@media (max-width:700px){
+    .mobile-page{
+        width:100%;
+        height:100%;
+    }
+
+    .mobile-page .inside{
+        padding:30px 24px 28px;
+    }
+
+    .mobile-page .decor{
+        font-size:25px;
+        margin-bottom:8px;
+    }
+
+    .mobile-page .title{
+        font-size:clamp(27px, 7.8vw, 34px);
+        line-height:1.08;
+        margin-bottom:15px;
+        max-width:92%;
+    }
+
+    .mobile-page .wish{
+        max-width:92%;
+        font-size:clamp(15px, 4.15vw, 18px);
+        line-height:1.38;
+    }
+
+    .mobile-page .cursive{
+        max-width:92%;
+        margin-top:16px;
+        font-size:clamp(18px, 5vw, 23px);
+        line-height:1.25;
+    }
+
+    .mobile-page .number{
+        bottom:12px;
+        font-size:11px;
+    }
+
+    .mobile-page .corner-design{
+        transform:scale(.65);
+        transform-origin:top left;
+    }
+
+    .mobile-page .corner-design.top-right{
+        transform:rotate(90deg) scale(.65);
+        transform-origin:top right;
+    }
+
+    .mobile-page .corner-design.bottom-right{
+        transform:rotate(180deg) scale(.65);
+        transform-origin:bottom right;
+    }
+
+    .mobile-page .corner-design.bottom-left{
+        transform:rotate(270deg) scale(.65);
+        transform-origin:bottom left;
+    }
+
+    /* Keep the birthday line and its emojis together on phones. */
+    .final-bday-line{
+        white-space:nowrap;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:5px;
+    }
+
+    .final-bday-emojis{
+        display:inline-block;
+        white-space:nowrap;
+    }
+}
+
+@media (max-width:380px){
+    .mobile-page .inside{
+        padding:25px 18px 25px;
+    }
+
+    .mobile-page .title{
+        font-size:25px;
+    }
+
+    .mobile-page .wish{
+        font-size:14.5px;
+        line-height:1.34;
+    }
+
+    .mobile-page .cursive{
+        font-size:17px;
+    }
+}
+
+
+@media (max-width:700px){
+    .final-bday-line{
+        font-size:clamp(24px, 7.1vw, 34px);
+        line-height:1.08;
+    }
+}
+
 </style>
 
 </head>
@@ -2132,6 +2283,149 @@ button:active{
 
 
 
+
+<!-- =================================================
+     MOBILE-ONLY: ONE WISH PER PAGE
+     Desktop spread pages remain unchanged.
+================================================= -->
+
+<div class="mobile-page" id="mobilePage1">
+    <div class="paper">
+        <div class="inside">
+            <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+
+            <div class="decor">🌸 ✨ 🌸</div>
+
+            <div class="title">Best Wishes From Hassan</div>
+
+            <div class="wish">
+                May your birthday bring you
+                beautiful moments, genuine
+                happiness and countless reasons
+                to smile.
+                <br><br>
+                May Allah always keep you happy,
+                bless your life with peace,
+                and fill your days with beautiful
+                moments and endless blessings.
+            </div>
+
+            <div class="cursive">
+                I hope this new chapter of your life
+                brings you many wonderful memories. 💫
+            </div>
+
+            <div class="number">01</div>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-page" id="mobilePage2">
+    <div class="paper">
+        <div class="inside">
+            <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+
+            <div class="decor">🎈 💖 🎂</div>
+
+            <div class="title">A Beautiful Year Ahead</div>
+
+            <div class="wish">
+                May every new day bring you closer
+                to the things you dream about,
+                and may your efforts turn into
+                moments you can truly be proud of.
+                <br><br>
+                May Allah give you success in
+                everything you do and make your
+                future brighter, happier and more
+                beautiful than you imagine.
+            </div>
+
+            <div class="cursive">
+                Keep smiling, keep shining,
+                and enjoy every beautiful moment. 🌷
+            </div>
+
+            <div class="number">02</div>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-page" id="mobilePage3">
+    <div class="paper">
+        <div class="inside">
+            <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+
+            <div class="decor">💐 ✨ 💐</div>
+
+            <div class="title">For Your Dreams</div>
+
+            <div class="wish">
+                I hope you always have the courage
+                to follow your dreams, the strength
+                to overcome challenges, and the
+                happiness to enjoy the journey.
+                <br><br>
+                May Allah make your naseeb beautiful,
+                guide you towards the best paths,
+                and open doors of opportunities
+                for you wherever life takes you.
+            </div>
+
+            <div class="cursive">
+                May there always be something
+                beautiful waiting for you ahead. 🌙
+            </div>
+
+            <div class="number">03</div>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-page" id="mobilePage4">
+    <div class="paper">
+        <div class="inside">
+            <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+            <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+
+            <div class="decor">🌷 💕 ✨</div>
+
+            <div class="title">Wishing You The Best</div>
+
+            <div class="wish">
+                Some of the best memories are made
+                in the simplest moments, so I hope
+                this year gives you plenty of moments
+                that make you smile without even trying.
+                <br><br>
+                May Allah always protect you,
+                keep you healthy and peaceful,
+                and fill your life with happiness,
+                success and countless blessings.
+            </div>
+
+            <div class="cursive">
+                Wishing you happiness today,
+                tomorrow and throughout the year. ✨
+            </div>
+
+            <div class="number">04</div>
+        </div>
+    </div>
+</div>
+
+
 <!-- =================================================
      FINAL PAGE
 ================================================= -->
@@ -2150,7 +2444,10 @@ button:active{
 
         Once Again,<br>
 
-        Happy Birthday Maliha! 🎂✨
+        <span class="final-bday-line">
+            Happy Birthday Maliha!
+            <span class="final-bday-emojis">🎂✨</span>
+        </span>
 
     </div>
 
@@ -2233,21 +2530,37 @@ const finalPage =
    ALL SCREENS
 ========================= */
 
-const screens = [
+const mobilePage1 = document.getElementById("mobilePage1");
+const mobilePage2 = document.getElementById("mobilePage2");
+const mobilePage3 = document.getElementById("mobilePage3");
+const mobilePage4 = document.getElementById("mobilePage4");
 
-    cover,
-
-    spread1,
-
-    spread2,
-
-    finalPage
-
-];
-
-
+let screens = [];
 let current = 0;
+let lastDeviceMode = null;
 
+function isPhoneLayout(){
+    return window.matchMedia("(max-width: 700px)").matches;
+}
+
+function setDeviceScreens(resetToCover = false){
+    const phone = isPhoneLayout();
+
+    if(phone !== lastDeviceMode || resetToCover){
+        lastDeviceMode = phone;
+        screens = phone
+            ? [cover, mobilePage1, mobilePage2, mobilePage3, mobilePage4, finalPage]
+            : [cover, spread1, spread2, finalPage];
+
+        if(resetToCover){
+            current = 0;
+        }else{
+            current = Math.min(current, screens.length - 1);
+        }
+
+        showScreen(current);
+    }
+}
 
 /* =========================
    SHOW SCREEN
@@ -2256,29 +2569,23 @@ let current = 0;
 function showScreen(index){
 
     screens.forEach((screen,i)=>{
-
         if(i === index){
-
             screen.classList.add("active");
-
-        }
-
-        else{
-
+        }else{
             screen.classList.remove("active");
-
         }
-
     });
-
 }
-
 
 /* =========================
    INITIAL SCREEN
 ========================= */
 
-showScreen(0);
+setDeviceScreens(true);
+
+window.addEventListener("resize", () => {
+    setDeviceScreens(false);
+});
 
 
 /* =========================
