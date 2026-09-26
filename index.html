@@ -749,79 +749,178 @@ body{
 
 
 /* =====================================================
-   CIRCULAR CORNER DESIGN
-   Same motif on mobile + laptop pages
+   NEW COLORED CORNER DESIGN
 ===================================================== */
 
 .corner-design{
+
     position:absolute;
-    width:112px;
-    height:112px;
+
+    width:92px;
+    height:92px;
+
     z-index:8;
+
     pointer-events:none;
-    opacity:.9;
-    overflow:visible;
+
+    opacity:.95;
 }
 
-.corner-design.top-left{ top:0; left:0; }
-.corner-design.top-right{ top:0; right:0; transform:rotate(90deg); }
-.corner-design.bottom-right{ bottom:0; right:0; transform:rotate(180deg); }
-.corner-design.bottom-left{ bottom:0; left:0; transform:rotate(270deg); }
 
-/* three soft concentric circular arcs */
+/* top left */
+
+.corner-design.top-left{
+
+    top:0;
+    left:0;
+}
+
+
+/* top right */
+
+.corner-design.top-right{
+
+    top:0;
+    right:0;
+
+    transform:rotate(90deg);
+}
+
+
+/* bottom right */
+
+.corner-design.bottom-right{
+
+    bottom:0;
+    right:0;
+
+    transform:rotate(180deg);
+}
+
+
+/* bottom left */
+
+.corner-design.bottom-left{
+
+    bottom:0;
+    left:0;
+
+    transform:rotate(270deg);
+}
+
+
+/* main ribbon */
+
 .corner-design::before{
+
     content:"";
+
     position:absolute;
-    width:118px;
-    height:118px;
-    top:-59px;
-    left:-59px;
-    border-radius:50%;
-    background:
-        radial-gradient(
-            circle,
-            transparent 0 46%,
-            rgba(181,148,201,.88) 47% 50%,
-            transparent 51% 64%,
-            rgba(201,151,173,.78) 65% 68%,
-            transparent 69% 81%,
-            rgba(181,148,201,.72) 82% 85%,
-            transparent 86%
+
+    width:78px;
+    height:78px;
+
+    top:-20px;
+    left:-20px;
+
+    border-radius:
+        0 0 78px 0;
+
+    border-bottom:
+        7px solid #c997ad;
+
+    border-right:
+        7px solid #b69bc8;
+
+    opacity:.9;
+
+    filter:
+        drop-shadow(
+            0 2px 3px
+            rgba(126,82,105,.12)
         );
-    filter:drop-shadow(0 2px 3px rgba(126,82,105,.10));
 }
+
+
+/* second ribbon */
 
 .corner-design::after{
+
     content:"";
+
     position:absolute;
-    width:72px;
-    height:72px;
-    top:-36px;
-    left:-36px;
-    border-radius:50%;
-    border:3px solid rgba(201,151,173,.62);
+
+    width:57px;
+    height:57px;
+
+    top:-12px;
+    left:-12px;
+
+    border-radius:
+        0 0 57px 0;
+
+    border-bottom:
+        4px solid rgba(218,169,184,.9);
+
+    border-right:
+        4px solid rgba(174,145,199,.85);
+
+    opacity:.85;
 }
+
+
+/* small diamond */
 
 .corner-dot{
+
     position:absolute;
-    width:12px;
-    height:12px;
-    top:27px;
-    left:27px;
-    border-radius:50%;
-    background:#b88bbd;
-    box-shadow:0 0 0 5px rgba(201,151,173,.16);
+
+    width:11px;
+    height:11px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #d8a7b9,
+            #b39ac8
+        );
+
+    transform:rotate(45deg);
+
+    top:24px;
+    left:24px;
+
+    border-radius:2px;
+
+    box-shadow:
+        0 2px 7px rgba(137,91,115,.22);
 }
 
+
+/* soft glow */
+
 .corner-glow{
+
     position:absolute;
-    width:28px;
-    height:28px;
-    top:19px;
-    left:19px;
+
+    width:35px;
+    height:35px;
+
+    top:8px;
+    left:8px;
+
     border-radius:50%;
-    background:radial-gradient(circle,rgba(232,193,207,.45),transparent 70%);
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(232,193,207,.45),
+            transparent 70%
+        );
 }
+
 
 /* =========================
    PAGE CONTENT
@@ -1103,333 +1202,198 @@ button:active{
 
 @media(max-width:700px){
 
+    /* Mobile: keep the complete card inside the visible phone screen */
     .book{
-
         width:94vw;
-
-        height:67vh;
-
-        min-height:450px;
-    }
-
-
-    .cover-title{
-
-        font-size:30px;
-
-        top:22px;
-    }
-
-
-    .cover-photo{
-
-        width:92px;
-        height:92px;
-
-        bottom:86px;
-    }
-
-    .cover-photo.left{
-        left:18px;
-    }
-
-    .cover-photo.right{
-        right:18px;
-    }
-
-
-    .teddy{
-
-        transform:scale(.72);
-
-        margin-top:15px;
-    }
-
-
-    .title{
-
-        font-size:29px;
-
-        margin-bottom:15px;
-    }
-
-
-    .wish{
-
-        font-size:15.5px;
-
-        line-height:1.45;
-    }
-
-
-    .cursive{
-
-        font-size:19px;
-
-        line-height:1.3;
-
-        margin-top:15px;
-    }
-
-
-    .inside{
-
-        padding:30px 18px;
-    }
-
-
-    .final-title{
-
-        font-size:36px;
-    }
-
-
-    .final-line{
-
-        font-size:27px;
-    }
-
-
-    button{
-
-        padding:9px 18px;
-
-        font-size:15px;
-    }
-
-
-    .corner-design{
-        transform:scale(.62);
-        transform-origin:top left;
-    }
-
-    .corner-design.top-right{
-        transform:rotate(90deg) scale(.62);
-        transform-origin:top right;
-    }
-
-    .corner-design.bottom-right{
-        transform:rotate(180deg) scale(.62);
-        transform-origin:bottom right;
-    }
-
-    .corner-design.bottom-left{
-        transform:rotate(270deg) scale(.62);
-        transform-origin:bottom left;
-    }
-
-}
-
-
-
-/* =========================
-   MOBILE COVER REFINEMENT
-   Keeps the complete cover visible on phones
-========================= */
-@media (max-width:700px){
-
-    .book{
-        width:92vw;
-        height:min(72svh, 620px);
+        height:min(600px, calc(100svh - 190px));
         min-height:0;
-        max-height:620px;
+        max-height:600px;
+        margin-top:-18px;
+    }
+
+    .spread, .cover, .final{
+        width:100%;
+        height:100%;
     }
 
     .cover-title{
+        font-size:30px;
         top:18px;
-        font-size:27px;
         padding:0 10px;
-        white-space:nowrap;
-    }
-
-    .teddy{
-        transform:scale(.56);
-        transform-origin:center center;
-        margin-top:4px;
     }
 
     .cover-photo{
         width:82px;
         height:82px;
-        padding:4px;
-        bottom:96px;
-        border-radius:9px;
+        bottom:92px;
     }
 
     .cover-photo.left{
-        left:8px;
+        left:58px;
     }
 
     .cover-photo.right{
-        right:8px;
+        right:58px;
+    }
+
+    .teddy{
+        transform:scale(.60);
+        margin-top:8px;
     }
 
     .cover-subtitle{
         bottom:22px;
-        font-size:11px;
-        letter-spacing:1.6px;
-        white-space:nowrap;
+        font-size:12px;
+        letter-spacing:2px;
+    }
+
+    .title{
+        font-size:27px;
+        margin-bottom:12px;
+    }
+
+    .wish{
+        max-width:280px;
+        font-size:14.5px;
+        line-height:1.38;
+    }
+
+    .cursive{
+        font-size:18px;
+        line-height:1.25;
+        margin-top:12px;
+    }
+
+    .inside{
+        padding:22px 14px;
+    }
+
+    .final-decor{
+        font-size:28px;
+        margin-bottom:14px;
+    }
+
+    .final-title{
+        font-size:36px;
+    }
+
+    .final-line{
+        font-size:25px;
+        margin-top:18px;
+    }
+
+    .final-ending{
+        font-size:30px;
+        margin-top:12px;
     }
 
     .controls{
         bottom:10px;
-        gap:7px;
+        gap:8px;
         width:100%;
         justify-content:center;
+        padding:0 8px;
     }
 
     button{
-        padding:8px 13px;
-        font-size:14px;
+        padding:9px 15px;
+        font-size:15px;
         white-space:nowrap;
     }
 
+
+    /* Four matching circular/arc corner ornaments for mobile */
     .corner-design{
-        transform:scale(.62);
-        transform-origin:top left;
+        width:118px;
+        height:118px;
+        transform:none !important;
+        opacity:.9;
+        z-index:8;
+        overflow:visible;
     }
 
-    .corner-design.top-right{
-        transform:rotate(90deg) scale(.62);
-        transform-origin:top right;
-    }
+    .corner-design.top-left{ top:0; left:0; }
+    .corner-design.top-right{ top:0; right:0; }
+    .corner-design.bottom-left{ bottom:0; left:0; }
+    .corner-design.bottom-right{ bottom:0; right:0; }
 
-    .corner-design.bottom-right{
-        transform:rotate(180deg) scale(.62);
-        transform-origin:bottom right;
-    }
-
-    .corner-design.bottom-left{
-        transform:rotate(270deg) scale(.62);
-        transform-origin:bottom left;
-    }
-}
-
-/* Very small phone screens */
-@media (max-width:380px){
-    .book{
-        width:94vw;
-        height:min(70svh, 570px);
-    }
-
-    .cover-title{
-        font-size:24px;
-    }
-
-    .teddy{
-        transform:scale(.49);
-    }
-
-    .cover-photo{
-        width:72px;
-        height:72px;
-        bottom:88px;
-    }
-
-    .cover-photo.left{
-        left:6px;
-    }
-
-    .cover-photo.right{
-        right:6px;
-    }
-
-    .cover-subtitle{
-        font-size:10px;
-        letter-spacing:1.2px;
-    }
-
-    button{
-        padding:7px 10px;
-        font-size:13px;
-    }
-}
-
-
-
-.mobile-wish{display:none;}
-
-/* =====================================================
-   MOBILE-ONLY FIX
-   Desktop/laptop layout remains unchanged.
-===================================================== */
-@media (max-width:700px){
-    .spread{
-        display:block;
-        transform:scale(1) !important;
-    }
-
-    .spread .paper{
-        width:100%;
-        height:100%;
-        display:none;
-        border-radius:12px;
-        border-right:0;
+    .corner-design::before{
+        width:112px;
+        height:112px;
+        top:-58px;
+        left:-58px;
+        border:4px solid rgba(183,151,201,.62);
+        border-radius:50%;
+        background:transparent;
         box-sizing:border-box;
+        filter:none;
     }
 
-    .spread .paper.mobile-show{ display:block; }
-    .spread::after{ display:none; }
-
-    .spread .inside{
-        padding:34px 22px;
-        box-sizing:border-box;
-    }
-
-    /* Mobile: one clean wish per page; laptop content stays exactly as-is. */
-    .spread .wish,
-    .spread .cursive{
-        display:none;
-    }
-
-    .spread .mobile-wish{
-        display:block;
-        max-width:560px;
-        margin:0 auto;
-        font-family:Georgia, serif;
-        font-size:16px;
-        line-height:1.65;
-        color:#634a52;
-        text-align:center;
-    }
-
-    /* Four visible circular/arc ornaments on every mobile page */
-    .spread .corner-design{
+    .corner-design::after{
         width:78px;
         height:78px;
-        opacity:.92;
-        overflow:visible;
-        transform:none;
+        top:-41px;
+        left:-41px;
+        border:4px solid rgba(204,159,181,.72);
+        border-radius:50%;
+        background:transparent;
+        box-sizing:border-box;
+        opacity:1;
     }
-    .spread .corner-design.top-left{top:0;left:0;}
-    .spread .corner-design.top-right{top:0;right:0;transform:rotate(90deg);}
-    .spread .corner-design.bottom-right{bottom:0;right:0;transform:rotate(180deg);}
-    .spread .corner-design.bottom-left{bottom:0;left:0;transform:rotate(270deg);}
 
-    .spread .corner-design::before{
-        width:104px;
-        height:104px;
-        top:-52px;
-        left:-52px;
-        background:radial-gradient(circle,
-            transparent 0 52%,
-            rgba(181,148,201,.90) 53% 56%,
-            transparent 57% 68%,
-            rgba(201,151,173,.82) 69% 72%,
-            transparent 73% 83%,
-            rgba(181,148,201,.74) 84% 87%,
-            transparent 88%);
+    .corner-design.top-right::before,
+    .corner-design.top-right::after{
+        left:auto;
+        right:-58px;
     }
-    .spread .corner-design::after{
-        width:62px;
-        height:62px;
-        top:-31px;
-        left:-31px;
-        border-width:3px;
-        border-color:rgba(201,151,173,.66);
+    .corner-design.top-right::after{ right:-41px; }
+
+    .corner-design.bottom-left::before,
+    .corner-design.bottom-left::after{
+        top:auto;
+        bottom:-58px;
     }
-    .spread .corner-dot{width:11px;height:11px;top:26px;left:26px;}
-    .spread .corner-glow{width:26px;height:26px;top:18px;left:18px;}
+    .corner-design.bottom-left::after{ bottom:-41px; }
+
+    .corner-design.bottom-right::before,
+    .corner-design.bottom-right::after{
+        top:auto;
+        left:auto;
+        right:-58px;
+        bottom:-58px;
+    }
+    .corner-design.bottom-right::after{ right:-41px; bottom:-41px; }
+
+    .corner-dot{
+        width:12px;
+        height:12px;
+        top:28px;
+        left:28px;
+        background:linear-gradient(135deg,#d8a7b9,#b39ac8);
+    }
+
+    .corner-design.top-right .corner-dot{
+        left:auto; right:28px;
+    }
+    .corner-design.bottom-left .corner-dot{
+        top:auto; bottom:28px;
+    }
+    .corner-design.bottom-right .corner-dot{
+        top:auto; left:auto; right:28px; bottom:28px;
+    }
+
+    /* Keep the final birthday line and its two emojis together */
+    .final-title{
+        font-size:clamp(26px,7.2vw,32px);
+        line-height:1.12;
+    }
+    .final-title br{ display:block; }
+    .final-title{ white-space:normal; }
+    .final-birthday-line{
+        display:inline-block;
+        white-space:nowrap;
+    }
+
 }
 
 </style>
@@ -1484,11 +1448,6 @@ button:active{
 ========================= -->
 
 <div class="cover" id="cover">
-
-    <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-    <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-    <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-    <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
 
 
     <div class="cover-title">
@@ -1685,10 +1644,6 @@ button:active{
 
             </div>
 
-            <div class="mobile-wish">
-                May your birthday bring you beautiful moments, genuine happiness, and countless reasons to smile. May Allah keep you happy, bless your life with peace, and fill your days with endless blessings.
-            </div>
-
 
             <div class="number">
 
@@ -1788,10 +1743,6 @@ button:active{
                 Keep smiling, keep shining,
                 and enjoy every beautiful moment. 🌷
 
-            </div>
-
-            <div class="mobile-wish">
-                May every new day bring you closer to the things you dream about, and may Allah give you success in everything you do and make your future brighter and happier.
             </div>
 
 
@@ -1905,10 +1856,6 @@ button:active{
 
             </div>
 
-            <div class="mobile-wish">
-                I hope you always have the courage to follow your dreams, the strength to overcome challenges, and may Allah guide you towards the best paths wherever life takes you.
-            </div>
-
 
             <div class="number">
 
@@ -2010,10 +1957,6 @@ button:active{
 
             </div>
 
-            <div class="mobile-wish">
-                May this year give you simple, beautiful moments that make you smile, and may Allah always protect you, keep you peaceful, and fill your life with happiness, success, and countless blessings.
-            </div>
-
 
             <div class="number">
 
@@ -2037,11 +1980,6 @@ button:active{
 
 <div class="final" id="final">
 
-    <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-    <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-    <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-    <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-
 
     <div class="final-decor">
 
@@ -2054,7 +1992,7 @@ button:active{
 
         Once Again,<br>
 
-        Happy Birthday Maliha! 🎂✨
+        <span class="final-birthday-line">Happy Birthday Maliha! 🎂✨</span>
 
     </div>
 
@@ -2138,79 +2076,128 @@ const finalPage =
 ========================= */
 
 const screens = [
+
     cover,
+
     spread1,
+
     spread2,
+
     finalPage
+
 ];
 
-/* On phones each page is shown separately; laptop keeps the original spreads. */
-const isMobile = () => window.matchMedia("(max-width: 700px)").matches;
-const mobileScreens = [
-    {container:cover},
-    {container:spread1, paper:spread1.querySelector('.paper.left')},
-    {container:spread1, paper:spread1.querySelector('.paper.right')},
-    {container:spread2, paper:spread2.querySelector('.paper.left')},
-    {container:spread2, paper:spread2.querySelector('.paper.right')},
-    {container:finalPage}
-];
 
 let current = 0;
 
-function maxPage(){
-    return isMobile() ? mobileScreens.length - 1 : screens.length - 1;
-}
+
+/* =========================
+   SHOW SCREEN
+========================= */
 
 function showScreen(index){
-    if(isMobile()){
-        screens.forEach(screen => screen.classList.remove("active"));
-        mobileScreens.forEach(item => {
-            if(item.paper) item.paper.classList.remove("mobile-show");
-        });
-        const item = mobileScreens[index];
-        item.container.classList.add("active");
-        if(item.paper) item.paper.classList.add("mobile-show");
-        return;
-    }
 
     screens.forEach((screen,i)=>{
-        if(i === index) screen.classList.add("active");
-        else screen.classList.remove("active");
+
+        if(i === index){
+
+            screen.classList.add("active");
+
+        }
+
+        else{
+
+            screen.classList.remove("active");
+
+        }
+
     });
+
 }
+
+
+/* =========================
+   INITIAL SCREEN
+========================= */
 
 showScreen(0);
 
-document.getElementById("next").addEventListener("click",()=>{
-    if(current < maxPage()){
-        current++;
-        showScreen(current);
-    }
-});
 
-document.getElementById("prev").addEventListener("click",()=>{
-    if(current > 0){
-        current--;
-        showScreen(current);
-    }
-});
+/* =========================
+   NEXT BUTTON
+========================= */
 
-document.addEventListener("keydown",(event)=>{
-    if(event.key === "ArrowRight" && current < maxPage()){
-        current++;
-        showScreen(current);
-    }
-    if(event.key === "ArrowLeft" && current > 0){
-        current--;
-        showScreen(current);
-    }
-});
+document
+    .getElementById("next")
+    .addEventListener("click",()=>{
 
-window.addEventListener("resize",()=>{
-    if(isMobile() && current > 5) current = 5;
-    if(!isMobile() && current > 3) current = 3;
-    showScreen(current);
-});
+        if(current < screens.length - 1){
+
+            current++;
+
+            showScreen(current);
+
+        }
+
+    });
+
+
+/* =========================
+   PREVIOUS BUTTON
+========================= */
+
+document
+    .getElementById("prev")
+    .addEventListener("click",()=>{
+
+        if(current > 0){
+
+            current--;
+
+            showScreen(current);
+
+        }
+
+    });
+
+
+/* =========================
+   KEYBOARD CONTROLS
+========================= */
+
+document.addEventListener(
+    "keydown",
+    (event)=>{
+
+
+        if(event.key === "ArrowRight"){
+
+            if(current < screens.length - 1){
+
+                current++;
+
+                showScreen(current);
+
+            }
+
+        }
+
+
+        if(event.key === "ArrowLeft"){
+
+            if(current > 0){
+
+                current--;
+
+                showScreen(current);
+
+            }
+
+        }
+
+
+    }
+);
 
 
 /* =========================
