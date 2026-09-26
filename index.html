@@ -1506,22 +1506,17 @@ button:active{
     .book{
         position:fixed !important;
         left:50% !important;
-        top:calc(var(--mobile-visual-height, 100dvh) / 2 - 45px) !important;
+        /* Keep the card vertically centered, but do NOT reduce its width.
+           The mobile card now uses the full phone width like the reference. */
+        top:calc(var(--mobile-visual-height, 100dvh) / 2 + 13px) !important;
         transform:translate(-50%,-50%) !important;
 
-        width:min(
-            calc(100vw - 20px),
-            calc((var(--mobile-visual-height, 100dvh) - 230px) / 1.61)
-        ) !important;
-
-        height:min(
-            calc((100vw - 20px) * 1.61),
-            calc(var(--mobile-visual-height, 100dvh) - 230px)
-        ) !important;
+        width:calc(100vw - 20px) !important;
+        height:calc((100vw - 20px) * 1.61) !important;
 
         min-height:0 !important;
         max-width:none !important;
-        max-height:none !important;
+        max-height:calc(var(--mobile-visual-height, 100dvh) - 105px) !important;
         margin:0 !important;
     }
 
