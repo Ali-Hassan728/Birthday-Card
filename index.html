@@ -1469,17 +1469,19 @@ button:active{
     .final .corner-design.bottom-left{ bottom:0; left:0; }
     .final .corner-design.bottom-right{ bottom:0; right:0; }
 
-    /* ---------- MOBILE BUTTONS BELOW THE CARD ---------- */
+    /* ---------- MOBILE BUTTONS: ALWAYS VISIBLE IN THE PHONE VIEWPORT ---------- */
     .controls{
         position:fixed !important;
         left:50% !important;
-        bottom:max(10px, env(safe-area-inset-bottom)) !important;
+        top:calc(var(--mobile-visual-height, 100vh) - 58px) !important;
+        bottom:auto !important;
         transform:translateX(-50%) !important;
         width:100%;
         gap:7px;
         justify-content:center;
         padding:0 7px;
-        z-index:1000 !important;
+        box-sizing:border-box;
+        z-index:10000 !important;
         pointer-events:auto;
     }
 
@@ -2311,6 +2313,21 @@ document.addEventListener(
 
 const desktopShowScreen = showScreen;
 const mobileMode = window.matchMedia("(max-width: 700px)");
+
+/* Keep the controls inside the actual visible mobile viewport.
+   Mobile browser address bars can make 100vh taller than the visible area. */
+function updateMobileVisualHeight(){
+    if(!mobileMode.matches) return;
+    const h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    document.documentElement.style.setProperty("--mobile-visual-height", h + "px");
+}
+
+updateMobileVisualHeight();
+if(window.visualViewport){
+    window.visualViewport.addEventListener("resize", updateMobileVisualHeight);
+    window.visualViewport.addEventListener("scroll", updateMobileVisualHeight);
+}
+window.addEventListener("resize", updateMobileVisualHeight);
 
 const mobilePaperPages = [
     spread1.querySelector(".paper.left"),
