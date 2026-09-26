@@ -1202,38 +1202,35 @@ button:active{
 
 @media(max-width:700px){
 
-    /* Mobile: keep the complete card inside the visible phone screen */
+    /* =====================================================
+       MOBILE ONLY
+       Desktop/laptop styles above remain untouched.
+       The mobile card follows the tall phone-card proportion
+       from the reference screenshot.
+    ===================================================== */
+
     .book{
-        width:94vw;
-        height:min(600px, calc(100svh - 190px));
+        width:calc(100vw - 20px);
+        height:calc((100vw - 20px) * 1.61);
+        max-width:none;
         min-height:0;
-        max-height:600px;
-        margin-top:-18px;
+        max-height:none;
+        margin:0 auto;
     }
 
-    .spread, .cover, .final{
+    .spread,
+    .cover,
+    .final{
         width:100%;
         height:100%;
     }
 
+    /* ---------- MOBILE FRONT ---------- */
     .cover-title{
-        font-size:30px;
-        top:18px;
-        padding:0 10px;
-    }
-
-    .cover-photo{
-        width:82px;
-        height:82px;
-        bottom:92px;
-    }
-
-    .cover-photo.left{
-        left:58px;
-    }
-
-    .cover-photo.right{
-        right:58px;
+        top:4.5%;
+        font-size:clamp(25px,7.4vw,31px);
+        padding:0 12px;
+        line-height:1.05;
     }
 
     .teddy{
@@ -1241,69 +1238,22 @@ button:active{
         margin-top:8px;
     }
 
+    .cover-photo{
+        width:82px;
+        height:82px;
+        bottom:13%;
+    }
+
+    .cover-photo.left{ left:6%; }
+    .cover-photo.right{ right:6%; }
+
     .cover-subtitle{
-        bottom:22px;
-        font-size:12px;
+        bottom:3.2%;
+        font-size:clamp(10px,3vw,12px);
         letter-spacing:2px;
     }
 
-    .title{
-        font-size:27px;
-        margin-bottom:12px;
-    }
-
-    .wish{
-        max-width:280px;
-        font-size:14.5px;
-        line-height:1.38;
-    }
-
-    .cursive{
-        font-size:18px;
-        line-height:1.25;
-        margin-top:12px;
-    }
-
-    .inside{
-        padding:22px 14px;
-    }
-
-    .final-decor{
-        font-size:28px;
-        margin-bottom:14px;
-    }
-
-    .final-title{
-        font-size:36px;
-    }
-
-    .final-line{
-        font-size:25px;
-        margin-top:18px;
-    }
-
-    .final-ending{
-        font-size:30px;
-        margin-top:12px;
-    }
-
-    .controls{
-        bottom:10px;
-        gap:8px;
-        width:100%;
-        justify-content:center;
-        padding:0 8px;
-    }
-
-    button{
-        padding:9px 15px;
-        font-size:15px;
-        white-space:nowrap;
-    }
-
-
-
-    /* Mobile: show one wish page at a time, without changing desktop */
+    /* ---------- MOBILE WISH PAGES ---------- */
     .spread.mobile-active{
         display:block;
         opacity:1 !important;
@@ -1326,18 +1276,51 @@ button:active{
         border-radius:12px;
     }
 
-    .spread.mobile-active::after{
-        display:none;
+    .spread.mobile-active::after{ display:none; }
+
+    .inside{
+        padding:13% 8%;
+        justify-content:center;
     }
 
-    /* Four matching circular/arc corner ornaments for mobile */
+    .decor{
+        font-size:clamp(23px,7vw,29px);
+        margin-bottom:3%;
+    }
+
+    .title{
+        font-size:clamp(25px,7.3vw,31px);
+        line-height:1.12;
+        margin-bottom:4%;
+        max-width:92%;
+    }
+
+    .wish{
+        max-width:92%;
+        font-size:clamp(14px,4.15vw,17px);
+        line-height:1.42;
+    }
+
+    .cursive{
+        max-width:92%;
+        font-size:clamp(17px,4.8vw,20px);
+        line-height:1.28;
+        margin-top:4%;
+    }
+
+    .number{
+        bottom:2.2%;
+        font-size:11px;
+        letter-spacing:2px;
+    }
+
+    /* ---------- FOUR CORNERS ON EVERY MOBILE WISH PAGE ---------- */
     .corner-design{
-        width:118px;
-        height:118px;
-        transform:none !important;
-        opacity:.9;
+        width:76px;
+        height:76px;
         z-index:8;
-        overflow:visible;
+        opacity:.95;
+        transform:none !important;
     }
 
     .corner-design.top-left{ top:0; left:0; }
@@ -1346,11 +1329,13 @@ button:active{
     .corner-design.bottom-right{ bottom:0; right:0; }
 
     .corner-design::before{
-        width:112px;
-        height:112px;
-        top:-58px;
-        left:-58px;
-        border:4px solid rgba(183,151,201,.62);
+        content:"";
+        position:absolute;
+        width:82px;
+        height:82px;
+        top:-41px;
+        left:-41px;
+        border:4px solid rgba(183,151,201,.65);
         border-radius:50%;
         background:transparent;
         box-sizing:border-box;
@@ -1358,11 +1343,13 @@ button:active{
     }
 
     .corner-design::after{
-        width:78px;
-        height:78px;
-        top:-41px;
-        left:-41px;
-        border:4px solid rgba(204,159,181,.72);
+        content:"";
+        position:absolute;
+        width:57px;
+        height:57px;
+        top:-28.5px;
+        left:-28.5px;
+        border:3px solid rgba(204,159,181,.78);
         border-radius:50%;
         background:transparent;
         box-sizing:border-box;
@@ -1372,186 +1359,119 @@ button:active{
     .corner-design.top-right::before,
     .corner-design.top-right::after{
         left:auto;
-        right:-58px;
+        right:-41px;
     }
-    .corner-design.top-right::after{ right:-41px; }
+    .corner-design.top-right::after{ right:-28.5px; }
 
     .corner-design.bottom-left::before,
     .corner-design.bottom-left::after{
         top:auto;
-        bottom:-58px;
+        bottom:-41px;
     }
-    .corner-design.bottom-left::after{ bottom:-41px; }
+    .corner-design.bottom-left::after{ bottom:-28.5px; }
 
     .corner-design.bottom-right::before,
     .corner-design.bottom-right::after{
         top:auto;
         left:auto;
-        right:-58px;
-        bottom:-58px;
+        right:-41px;
+        bottom:-41px;
     }
-    .corner-design.bottom-right::after{ right:-41px; bottom:-41px; }
+    .corner-design.bottom-right::after{
+        right:-28.5px;
+        bottom:-28.5px;
+    }
 
     .corner-dot{
-        width:12px;
-        height:12px;
-        top:28px;
-        left:28px;
-        background:linear-gradient(135deg,#d8a7b9,#b39ac8);
+        width:10px;
+        height:10px;
+        top:23px;
+        left:23px;
     }
 
     .corner-design.top-right .corner-dot{
-        left:auto; right:28px;
+        left:auto;
+        right:23px;
     }
     .corner-design.bottom-left .corner-dot{
-        top:auto; bottom:28px;
+        top:auto;
+        bottom:23px;
     }
     .corner-design.bottom-right .corner-dot{
-        top:auto; left:auto; right:28px; bottom:28px;
+        top:auto;
+        left:auto;
+        right:23px;
+        bottom:23px;
     }
 
-    /* Keep the final birthday line and its two emojis together */
-    .final-title{
-        font-size:clamp(26px,7.2vw,32px);
-        line-height:1.12;
+    /* ---------- MOBILE FINAL PAGE ---------- */
+    .final{
+        padding:13% 7%;
     }
+
+    .final-decor{
+        font-size:clamp(24px,7vw,30px);
+        margin-bottom:4%;
+    }
+
+    .final-title{
+        font-size:clamp(28px,8vw,36px);
+        line-height:1.12;
+        white-space:normal;
+        text-align:center;
+    }
+
     .final-title br{ display:block; }
-    .final-title{ white-space:normal; }
+
     .final-birthday-line{
         display:inline-block;
         white-space:nowrap;
+        font-size:clamp(25px,7.1vw,33px);
     }
 
+    .final-line{
+        font-size:clamp(22px,6.5vw,27px);
+        margin-top:5%;
+    }
+
+    .final-ending{
+        font-size:clamp(25px,7vw,30px);
+        margin-top:4%;
+    }
+
+    /* Final page also gets four matching corners. */
+    .final .corner-design{
+        position:absolute;
+        width:76px;
+        height:76px;
+        z-index:8;
+    }
+
+    .final .corner-design.top-left{ top:0; left:0; }
+    .final .corner-design.top-right{ top:0; right:0; }
+    .final .corner-design.bottom-left{ bottom:0; left:0; }
+    .final .corner-design.bottom-right{ bottom:0; right:0; }
+
+    /* ---------- MOBILE BUTTONS BELOW THE CARD ---------- */
+    .controls{
+        position:fixed;
+        left:50%;
+        bottom:10px;
+        transform:translateX(-50%);
+        width:100%;
+        gap:7px;
+        justify-content:center;
+        padding:0 7px;
+    }
+
+    button{
+        padding:9px 13px;
+        font-size:clamp(13px,3.9vw,15px);
+        white-space:nowrap;
+    }
 }
 
 
-/* =====================================================
-   FINAL MOBILE-ONLY OVERRIDES
-   Desktop/laptop layout is intentionally untouched.
-===================================================== */
-@media (max-width:700px){
-  /* Keep the mobile front cover at the same phone-friendly size. */
-  .book{
-    width:94vw !important;
-    height:min(600px, calc(100svh - 190px)) !important;
-    min-height:0 !important;
-    max-height:600px !important;
-    margin-top:-18px !important;
-  }
-
-  /* Every inner mobile page occupies the exact same full card area. */
-  .spread.mobile-active{
-    display:block !important;
-    position:absolute !important;
-    inset:0 !important;
-    width:100% !important;
-    height:100% !important;
-    opacity:1 !important;
-    visibility:visible !important;
-    transform:scale(1) !important;
-  }
-
-  .spread.mobile-active .paper{
-    display:none !important;
-    position:absolute !important;
-    inset:0 !important;
-    width:100% !important;
-    height:100% !important;
-    min-width:100% !important;
-    max-width:100% !important;
-    border-radius:12px !important;
-    overflow:hidden !important;
-  }
-
-  .spread.mobile-active .paper.mobile-page-active{
-    display:block !important;
-  }
-
-  .spread.mobile-active .paper.mobile-page-active .inside{
-    width:100% !important;
-    height:100% !important;
-    box-sizing:border-box !important;
-    padding:22px 14px !important;
-  }
-
-  /* Four corner designs on EVERY mobile wish page. */
-  .spread.mobile-active .paper.mobile-page-active .corner-design{
-    display:block !important;
-    width:118px !important;
-    height:118px !important;
-    opacity:.9 !important;
-    z-index:20 !important;
-    pointer-events:none !important;
-  }
-
-  .spread.mobile-active .paper.mobile-page-active .corner-design.top-left{
-    top:0 !important; left:0 !important; transform:none !important;
-  }
-  .spread.mobile-active .paper.mobile-page-active .corner-design.top-right{
-    top:0 !important; right:0 !important; transform:none !important;
-  }
-  .spread.mobile-active .paper.mobile-page-active .corner-design.bottom-left{
-    bottom:0 !important; left:0 !important; transform:none !important;
-  }
-  .spread.mobile-active .paper.mobile-page-active .corner-design.bottom-right{
-    bottom:0 !important; right:0 !important; transform:none !important;
-  }
-
-  .spread.mobile-active .paper.mobile-page-active .corner-design::before{
-    width:112px !important;
-    height:112px !important;
-    border:4px solid rgba(183,151,201,.62) !important;
-    border-radius:50% !important;
-    background:transparent !important;
-    box-sizing:border-box !important;
-    filter:none !important;
-  }
-
-  .spread.mobile-active .paper.mobile-page-active .corner-design::after{
-    width:78px !important;
-    height:78px !important;
-    border:4px solid rgba(204,159,181,.72) !important;
-    border-radius:50% !important;
-    background:transparent !important;
-    box-sizing:border-box !important;
-    opacity:1 !important;
-  }
-
-  .spread.mobile-active .paper.mobile-page-active .corner-design.top-left::before{top:-58px !important;left:-58px !important;}
-  .spread.mobile-active .paper.mobile-page-active .corner-design.top-left::after{top:-41px !important;left:-41px !important;}
-  .spread.mobile-active .paper.mobile-page-active .corner-design.top-right::before{top:-58px !important;right:-58px !important;left:auto !important;}
-  .spread.mobile-active .paper.mobile-page-active .corner-design.top-right::after{top:-41px !important;right:-41px !important;left:auto !important;}
-  .spread.mobile-active .paper.mobile-page-active .corner-design.bottom-left::before{bottom:-58px !important;left:-58px !important;top:auto !important;}
-  .spread.mobile-active .paper.mobile-page-active .corner-design.bottom-left::after{bottom:-41px !important;left:-41px !important;top:auto !important;}
-  .spread.mobile-active .paper.mobile-page-active .corner-design.bottom-right::before{bottom:-58px !important;right:-58px !important;left:auto !important;top:auto !important;}
-  .spread.mobile-active .paper.mobile-page-active .corner-design.bottom-right::after{bottom:-41px !important;right:-41px !important;left:auto !important;top:auto !important;}
-
-  .spread.mobile-active .paper.mobile-page-active .corner-dot{
-    width:12px !important; height:12px !important;
-    background:linear-gradient(135deg,#d8a7b9,#b39ac8) !important;
-    top:28px !important; left:28px !important;
-  }
-  .spread.mobile-active .paper.mobile-page-active .corner-design.top-right .corner-dot{top:28px !important;right:28px !important;left:auto !important;}
-  .spread.mobile-active .paper.mobile-page-active .corner-design.bottom-left .corner-dot{bottom:28px !important;left:28px !important;top:auto !important;}
-  .spread.mobile-active .paper.mobile-page-active .corner-design.bottom-right .corner-dot{bottom:28px !important;right:28px !important;left:auto !important;top:auto !important;}
-
-  /* Keep the existing single-wish typography; only make it fit cleanly. */
-  .spread.mobile-active .paper.mobile-page-active .title{
-    font-size:27px !important;
-    line-height:1.15 !important;
-    margin-bottom:12px !important;
-  }
-  .spread.mobile-active .paper.mobile-page-active .wish{
-    max-width:280px !important;
-    font-size:14.5px !important;
-    line-height:1.38 !important;
-  }
-  .spread.mobile-active .paper.mobile-page-active .cursive{
-    font-size:18px !important;
-    line-height:1.25 !important;
-    margin-top:12px !important;
-  }
-}
 </style>
 
 </head>
@@ -2137,6 +2057,12 @@ button:active{
 <div class="final" id="final">
 
 
+    <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+    <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+    <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+    <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+
+
     <div class="final-decor">
 
         🌸 ✨ 🎂 ✨ 🌸
@@ -2362,6 +2288,7 @@ document.addEventListener(
    MOBILE: ONE WISH PAGE AT A TIME
    Desktop layout remains unchanged.
 ========================= */
+
 const desktopShowScreen = showScreen;
 const mobileMode = window.matchMedia("(max-width: 700px)");
 const mobilePaperPages = [
@@ -2371,12 +2298,19 @@ const mobilePaperPages = [
 const mobileScreens = [cover, ...mobilePaperPages, finalPage];
 
 function showMobileScreen(index){
-    mobileScreens.forEach((screen)=>screen.classList.remove("active"));
-    spread1.classList.remove("active", "mobile-active");
-    spread2.classList.remove("active", "mobile-active");
-    mobilePaperPages.forEach((paper)=>paper.classList.remove("mobile-page-active"));
 
-    const target = mobileScreens[Math.max(0, Math.min(index, mobileScreens.length - 1))];
+    mobileScreens.forEach((screen)=>{
+        screen.classList.remove("active");
+    });
+
+    spread1.classList.remove("mobile-active");
+    spread2.classList.remove("mobile-active");
+
+    mobilePaperPages.forEach((paper)=>{
+        paper.classList.remove("mobile-page-active");
+    });
+
+    const target = mobileScreens[index];
 
     if(target === cover || target === finalPage){
         target.classList.add("active");
