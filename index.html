@@ -749,178 +749,79 @@ body{
 
 
 /* =====================================================
-   NEW COLORED CORNER DESIGN
+   CIRCULAR CORNER DESIGN
+   Same motif on mobile + laptop pages
 ===================================================== */
 
 .corner-design{
-
     position:absolute;
-
-    width:92px;
-    height:92px;
-
+    width:112px;
+    height:112px;
     z-index:8;
-
     pointer-events:none;
-
-    opacity:.95;
-}
-
-
-/* top left */
-
-.corner-design.top-left{
-
-    top:0;
-    left:0;
-}
-
-
-/* top right */
-
-.corner-design.top-right{
-
-    top:0;
-    right:0;
-
-    transform:rotate(90deg);
-}
-
-
-/* bottom right */
-
-.corner-design.bottom-right{
-
-    bottom:0;
-    right:0;
-
-    transform:rotate(180deg);
-}
-
-
-/* bottom left */
-
-.corner-design.bottom-left{
-
-    bottom:0;
-    left:0;
-
-    transform:rotate(270deg);
-}
-
-
-/* main ribbon */
-
-.corner-design::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:78px;
-    height:78px;
-
-    top:-20px;
-    left:-20px;
-
-    border-radius:
-        0 0 78px 0;
-
-    border-bottom:
-        7px solid #c997ad;
-
-    border-right:
-        7px solid #b69bc8;
-
     opacity:.9;
-
-    filter:
-        drop-shadow(
-            0 2px 3px
-            rgba(126,82,105,.12)
-        );
+    overflow:visible;
 }
 
+.corner-design.top-left{ top:0; left:0; }
+.corner-design.top-right{ top:0; right:0; transform:rotate(90deg); }
+.corner-design.bottom-right{ bottom:0; right:0; transform:rotate(180deg); }
+.corner-design.bottom-left{ bottom:0; left:0; transform:rotate(270deg); }
 
-/* second ribbon */
-
-.corner-design::after{
-
+/* three soft concentric circular arcs */
+.corner-design::before{
     content:"";
-
     position:absolute;
-
-    width:57px;
-    height:57px;
-
-    top:-12px;
-    left:-12px;
-
-    border-radius:
-        0 0 57px 0;
-
-    border-bottom:
-        4px solid rgba(218,169,184,.9);
-
-    border-right:
-        4px solid rgba(174,145,199,.85);
-
-    opacity:.85;
-}
-
-
-/* small diamond */
-
-.corner-dot{
-
-    position:absolute;
-
-    width:11px;
-    height:11px;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #d8a7b9,
-            #b39ac8
-        );
-
-    transform:rotate(45deg);
-
-    top:24px;
-    left:24px;
-
-    border-radius:2px;
-
-    box-shadow:
-        0 2px 7px rgba(137,91,115,.22);
-}
-
-
-/* soft glow */
-
-.corner-glow{
-
-    position:absolute;
-
-    width:35px;
-    height:35px;
-
-    top:8px;
-    left:8px;
-
+    width:118px;
+    height:118px;
+    top:-59px;
+    left:-59px;
     border-radius:50%;
-
     background:
-
         radial-gradient(
             circle,
-            rgba(232,193,207,.45),
-            transparent 70%
+            transparent 0 46%,
+            rgba(181,148,201,.88) 47% 50%,
+            transparent 51% 64%,
+            rgba(201,151,173,.78) 65% 68%,
+            transparent 69% 81%,
+            rgba(181,148,201,.72) 82% 85%,
+            transparent 86%
         );
+    filter:drop-shadow(0 2px 3px rgba(126,82,105,.10));
 }
 
+.corner-design::after{
+    content:"";
+    position:absolute;
+    width:72px;
+    height:72px;
+    top:-36px;
+    left:-36px;
+    border-radius:50%;
+    border:3px solid rgba(201,151,173,.62);
+}
+
+.corner-dot{
+    position:absolute;
+    width:12px;
+    height:12px;
+    top:27px;
+    left:27px;
+    border-radius:50%;
+    background:#b88bbd;
+    box-shadow:0 0 0 5px rgba(201,151,173,.16);
+}
+
+.corner-glow{
+    position:absolute;
+    width:28px;
+    height:28px;
+    top:19px;
+    left:19px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(232,193,207,.45),transparent 70%);
+}
 
 /* =========================
    PAGE CONTENT
@@ -1298,564 +1199,149 @@ button:active{
 
 
     .corner-design{
-
-        transform:scale(.75);
-
+        transform:scale(.62);
         transform-origin:top left;
     }
-
 
     .corner-design.top-right{
-
-        transform:
-            rotate(90deg)
-            scale(.75);
-
+        transform:rotate(90deg) scale(.62);
         transform-origin:top right;
     }
 
-
     .corner-design.bottom-right{
-
-        transform:
-            rotate(180deg)
-            scale(.75);
-
+        transform:rotate(180deg) scale(.62);
         transform-origin:bottom right;
     }
 
-
     .corner-design.bottom-left{
-
-        transform:
-            rotate(270deg)
-            scale(.75);
-
+        transform:rotate(270deg) scale(.62);
         transform-origin:bottom left;
     }
 
 }
 
 
-/* =====================================================
-   RESPONSIVE DEVICE FIT — MOBILE + LAPTOP
-   Keeps the complete card inside the visible viewport.
-===================================================== */
+
+/* =========================
+   MOBILE COVER REFINEMENT
+   Keeps the complete cover visible on phones
+========================= */
 @media (max-width:700px){
 
-  html, body{
-    width:100%;
-    height:100%;
-    min-height:100%;
-    overflow:hidden;
-  }
-
-  body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0;
-  }
-
-  .book{
-    width:96vw;
-    height:min(84vh, calc(96vw / 0.62));
-    min-height:0;
-    max-height:calc(100vh - 78px);
-    margin:0;
-    perspective:none;
-  }
-
-  /* Portrait front cover on phones */
-  .cover,
-  .final,
-  .spread{
-    border-radius:16px;
-  }
-
-  .cover-title{
-    top:4.2%;
-    left:3%;
-    width:94%;
-    font-size:clamp(24px, 7.2vw, 34px);
-    line-height:1.08;
-  }
-
-  .teddy{
-    width:250px;
-    height:290px;
-    margin:0;
-    flex:none;
-    transform:scale(.76);
-    transform-origin:center center;
-    animation:none;
-  }
-
-  .cover-photo{
-    width:clamp(78px, 22vw, 100px);
-    height:clamp(78px, 22vw, 100px);
-    bottom:19%;
-    padding:4px;
-    border-radius:10px;
-  }
-
-  .cover-photo.left{
-    left:4.5%;
-    transform:rotate(-5deg);
-  }
-
-  .cover-photo.right{
-    right:4.5%;
-    transform:rotate(5deg);
-  }
-
-  .cover-subtitle{
-    bottom:5.2%;
-    width:100%;
-    text-align:center;
-    padding:0 8px;
-    font-size:clamp(11px, 3.1vw, 15px);
-    letter-spacing:2px;
-  }
-
-  /* Keep navigation inside the phone viewport */
-  .controls{
-    position:fixed;
-    left:50%;
-    bottom:8px;
-    width:96vw;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-    z-index:1000;
-  }
-
-  button{
-    min-width:0;
-    padding:9px 13px;
-    font-size:clamp(13px, 3.8vw, 16px);
-    white-space:nowrap;
-  }
-
-  /* Mobile spreads: both pages stay completely inside the screen */
-  .spread{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-  }
-
-  .paper{
-    height:100%;
-    min-width:0;
-  }
-
-  .inside{
-    padding:26px 12px 22px;
-  }
-
-  .inside::before{
-    inset:10px;
-  }
-
-  .decor{
-    font-size:19px;
-    margin-bottom:6px;
-  }
-
-  .title{
-    font-size:clamp(21px, 6.2vw, 29px);
-    line-height:1.08;
-    margin-bottom:10px;
-  }
-
-  .wish{
-    max-width:100%;
-    font-size:clamp(12px, 3.5vw, 15px);
-    line-height:1.28;
-  }
-
-  .cursive{
-    margin-top:10px;
-    font-size:clamp(15px, 4.3vw, 19px);
-    line-height:1.2;
-  }
-
-  .number{
-    bottom:10px;
-    font-size:10px;
-    letter-spacing:1px;
-  }
-
-  .corner-design{
-    transform:scale(.58);
-    transform-origin:top left;
-  }
-
-  .corner-design.top-right{
-    transform:rotate(90deg) scale(.58);
-    transform-origin:top right;
-  }
-
-  .corner-design.bottom-right{
-    transform:rotate(180deg) scale(.58);
-    transform-origin:bottom right;
-  }
-
-  .corner-design.bottom-left{
-    transform:rotate(270deg) scale(.58);
-    transform-origin:bottom left;
-  }
-
-  .final-decor{
-    font-size:24px;
-    margin-bottom:12px;
-  }
-
-  .final-title{
-    font-size:clamp(30px, 9vw, 42px);
-    line-height:1.15;
-  }
-
-  .final-line{
-    margin-top:16px;
-    font-size:clamp(22px, 6.5vw, 30px);
-  }
-
-  .final-ending{
-    font-size:28px;
-    margin-top:10px;
-  }
-}
-
-/* Extra-small phones */
-@media (max-width:380px){
-  .book{
-    width:97vw;
-    height:min(82vh, calc(97vw / 0.62));
-  }
-
-  .teddy{
-    transform:scale(.68);
-  }
-
-  .cover-photo{
-    width:76px;
-    height:76px;
-    bottom:18%;
-  }
-
-  .controls{
-    gap:5px;
-  }
-
-  button{
-    padding:8px 10px;
-    font-size:13px;
-  }
-}
-
-
-/* =====================================================
-   MOBILE: ONE WISH PAGE AT A TIME
-   Desktop spread layout is intentionally untouched.
-===================================================== */
-.mobile-page{
-    position:absolute;
-    inset:0;
-    display:flex;
-    opacity:0;
-    visibility:hidden;
-    transform:scale(.96);
-    transition:opacity .45s ease, transform .45s ease;
-    z-index:1;
-    border-radius:16px;
-    overflow:hidden;
-    background:#fffaf6;
-}
-
-.mobile-page.active{
-    opacity:1;
-    visibility:visible;
-    transform:scale(1);
-    z-index:25;
-}
-
-.mobile-page .paper{
-    width:100%;
-    height:100%;
-    border-radius:16px;
-    border-right:none;
-}
-
-.mobile-page .inside{
-    width:100%;
-    height:100%;
-    padding:34px 24px 30px;
-}
-
-.mobile-page .wish{
-    max-width:520px;
-}
-
-@media (min-width:701px){
-    .mobile-page{
-        display:none !important;
-    }
-}
-
-@media (max-width:700px){
-    .mobile-page{
-        width:100%;
-        height:100%;
+    .book{
+        width:92vw;
+        height:min(72svh, 620px);
+        min-height:0;
+        max-height:620px;
     }
 
-    .mobile-page .inside{
-        padding:30px 24px 28px;
+    .cover-title{
+        top:18px;
+        font-size:27px;
+        padding:0 10px;
+        white-space:nowrap;
     }
 
-    .mobile-page .decor{
-        font-size:25px;
-        margin-bottom:8px;
+    .teddy{
+        transform:scale(.56);
+        transform-origin:center center;
+        margin-top:4px;
     }
 
-    .mobile-page .title{
-        font-size:clamp(27px, 7.8vw, 34px);
-        line-height:1.08;
-        margin-bottom:15px;
-        max-width:92%;
+    .cover-photo{
+        width:82px;
+        height:82px;
+        padding:4px;
+        bottom:96px;
+        border-radius:9px;
     }
 
-    .mobile-page .wish{
-        max-width:92%;
-        font-size:clamp(15px, 4.15vw, 18px);
-        line-height:1.38;
+    .cover-photo.left{
+        left:8px;
     }
 
-    .mobile-page .cursive{
-        max-width:92%;
-        margin-top:16px;
-        font-size:clamp(18px, 5vw, 23px);
-        line-height:1.25;
+    .cover-photo.right{
+        right:8px;
     }
 
-    .mobile-page .number{
-        bottom:12px;
+    .cover-subtitle{
+        bottom:22px;
         font-size:11px;
+        letter-spacing:1.6px;
+        white-space:nowrap;
     }
 
-    .mobile-page .corner-design{
-        transform:scale(.65);
+    .controls{
+        bottom:10px;
+        gap:7px;
+        width:100%;
+        justify-content:center;
+    }
+
+    button{
+        padding:8px 13px;
+        font-size:14px;
+        white-space:nowrap;
+    }
+
+    .corner-design{
+        transform:scale(.62);
         transform-origin:top left;
     }
 
-    .mobile-page .corner-design.top-right{
-        transform:rotate(90deg) scale(.65);
+    .corner-design.top-right{
+        transform:rotate(90deg) scale(.62);
         transform-origin:top right;
     }
 
-    .mobile-page .corner-design.bottom-right{
-        transform:rotate(180deg) scale(.65);
+    .corner-design.bottom-right{
+        transform:rotate(180deg) scale(.62);
         transform-origin:bottom right;
     }
 
-    .mobile-page .corner-design.bottom-left{
-        transform:rotate(270deg) scale(.65);
+    .corner-design.bottom-left{
+        transform:rotate(270deg) scale(.62);
         transform-origin:bottom left;
     }
-
-    /* Keep the birthday line and its emojis together on phones. */
-    .final-bday-line{
-        white-space:nowrap;
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        gap:5px;
-    }
-
-    .final-bday-emojis{
-        display:inline-block;
-        white-space:nowrap;
-    }
 }
 
+/* Very small phone screens */
 @media (max-width:380px){
-    .mobile-page .inside{
-        padding:25px 18px 25px;
+    .book{
+        width:94vw;
+        height:min(70svh, 570px);
     }
 
-    .mobile-page .title{
-        font-size:25px;
+    .cover-title{
+        font-size:24px;
     }
 
-    .mobile-page .wish{
-        font-size:14.5px;
-        line-height:1.34;
+    .teddy{
+        transform:scale(.49);
     }
 
-    .mobile-page .cursive{
-        font-size:17px;
-    }
-}
-
-
-@media (max-width:700px){
-    .final-bday-line{
-        font-size:clamp(24px, 7.1vw, 34px);
-        line-height:1.08;
-    }
-}
-
-
-/* Mobile wish-page corner decoration fix */
-@media (max-width:700px){
-    .mobile-page .corner-design{
-        display:block !important;
-        position:absolute;
-        width:76px;
-        height:76px;
-        z-index:5;
-        pointer-events:none;
-        opacity:.9;
+    .cover-photo{
+        width:72px;
+        height:72px;
+        bottom:88px;
     }
 
-    .mobile-page .corner-design.top-left{
-        top:0;
-        left:0;
-        transform:none !important;
-        border-top-left-radius:16px;
+    .cover-photo.left{
+        left:6px;
     }
 
-    .mobile-page .corner-design.top-right{
-        top:0;
-        right:0;
-        transform:rotate(90deg) !important;
-        transform-origin:top right !important;
+    .cover-photo.right{
+        right:6px;
     }
 
-    .mobile-page .corner-design.bottom-right{
-        bottom:0;
-        right:0;
-        transform:rotate(180deg) !important;
-        transform-origin:bottom right !important;
+    .cover-subtitle{
+        font-size:10px;
+        letter-spacing:1.2px;
     }
 
-    .mobile-page .corner-design.bottom-left{
-        bottom:0;
-        left:0;
-        transform:rotate(270deg) !important;
-        transform-origin:bottom left !important;
-    }
-
-    .mobile-page .corner-dot,
-    .mobile-page .corner-glow{
-        display:block !important;
-    }
-}
-
-
-/* =====================================================
-   MOBILE ONLY — FOUR CORNER FRAME
-   Only the corner decoration is changed.
-   Everything else remains untouched.
-===================================================== */
-@media (max-width:700px){
-    .mobile-page .inside{
-        position:relative;
-        overflow:hidden;
-    }
-
-    .mobile-page .corner-design{
-        display:block !important;
-        position:absolute !important;
-        width:88px !important;
-        height:88px !important;
-        margin:0 !important;
-        padding:0 !important;
-        z-index:30 !important;
-        pointer-events:none !important;
-        opacity:1 !important;
-        background:
-            radial-gradient(circle at center,
-                transparent 0 13px,
-                rgba(170,111,153,.72) 14px 17px,
-                transparent 18px 27px,
-                rgba(194,129,168,.58) 28px 31px,
-                transparent 32px 40px,
-                rgba(170,111,153,.42) 41px 44px,
-                transparent 45px);
-    }
-
-    .mobile-page .corner-design::before{
-        content:"";
-        position:absolute;
-        width:62px;
-        height:62px;
-        border:3px solid rgba(170,111,153,.70);
-        border-radius:100% 0 0 0;
-    }
-
-    .mobile-page .corner-design::after{
-        content:"";
-        position:absolute;
-        width:44px;
-        height:44px;
-        border:2px solid rgba(214,151,181,.72);
-        border-radius:100% 0 0 0;
-    }
-
-    .mobile-page .corner-dot{
-        display:block !important;
-        position:absolute;
-        width:8px;
-        height:8px;
-        border-radius:50%;
-        background:rgba(170,111,153,.75);
-        box-shadow:0 0 0 5px rgba(214,151,181,.22);
-        z-index:2;
-    }
-
-    .mobile-page .corner-glow{
-        display:none !important;
-    }
-
-    .mobile-page .corner-design.top-left{
-        top:-3px !important;
-        left:-3px !important;
-        transform:none !important;
-        transform-origin:top left !important;
-    }
-
-    .mobile-page .corner-design.top-right{
-        top:-3px !important;
-        right:-3px !important;
-        transform:rotate(90deg) !important;
-        transform-origin:top right !important;
-    }
-
-    .mobile-page .corner-design.bottom-right{
-        bottom:-3px !important;
-        right:-3px !important;
-        transform:rotate(180deg) !important;
-        transform-origin:bottom right !important;
-    }
-
-    .mobile-page .corner-design.bottom-left{
-        bottom:-3px !important;
-        left:-3px !important;
-        transform:rotate(270deg) !important;
-        transform-origin:bottom left !important;
-    }
-
-    .mobile-page .corner-design.top-left .corner-dot{
-        top:32px;
-        left:32px;
-    }
-
-    .mobile-page .corner-design.top-right .corner-dot,
-    .mobile-page .corner-design.bottom-right .corner-dot,
-    .mobile-page .corner-design.bottom-left .corner-dot{
-        top:32px;
-        left:32px;
+    button{
+        padding:7px 10px;
+        font-size:13px;
     }
 }
 
@@ -1911,6 +1397,11 @@ button:active{
 ========================= -->
 
 <div class="cover" id="cover">
+
+    <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+    <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+    <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+    <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
 
 
     <div class="cover-title">
@@ -2437,154 +1928,16 @@ button:active{
 
 
 
-
-<!-- =================================================
-     MOBILE-ONLY: ONE WISH PER PAGE
-     Desktop spread pages remain unchanged.
-================================================= -->
-
-<div class="mobile-page" id="mobilePage1">
-    <div class="paper">
-        <div class="inside">
-            <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-
-            <div class="decor">🌸 ✨ 🌸</div>
-
-            <div class="title">Best Wishes From Hassan</div>
-
-            <div class="wish">
-                May your birthday bring you
-                beautiful moments, genuine
-                happiness and countless reasons
-                to smile.
-                <br><br>
-                May Allah always keep you happy,
-                bless your life with peace,
-                and fill your days with beautiful
-                moments and endless blessings.
-            </div>
-
-            <div class="cursive">
-                I hope this new chapter of your life
-                brings you many wonderful memories. 💫
-            </div>
-
-            <div class="number">01</div>
-        </div>
-    </div>
-</div>
-
-<div class="mobile-page" id="mobilePage2">
-    <div class="paper">
-        <div class="inside">
-            <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-
-            <div class="decor">🎈 💖 🎂</div>
-
-            <div class="title">A Beautiful Year Ahead</div>
-
-            <div class="wish">
-                May every new day bring you closer
-                to the things you dream about,
-                and may your efforts turn into
-                moments you can truly be proud of.
-                <br><br>
-                May Allah give you success in
-                everything you do and make your
-                future brighter, happier and more
-                beautiful than you imagine.
-            </div>
-
-            <div class="cursive">
-                Keep smiling, keep shining,
-                and enjoy every beautiful moment. 🌷
-            </div>
-
-            <div class="number">02</div>
-        </div>
-    </div>
-</div>
-
-<div class="mobile-page" id="mobilePage3">
-    <div class="paper">
-        <div class="inside">
-            <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-
-            <div class="decor">💐 ✨ 💐</div>
-
-            <div class="title">For Your Dreams</div>
-
-            <div class="wish">
-                I hope you always have the courage
-                to follow your dreams, the strength
-                to overcome challenges, and the
-                happiness to enjoy the journey.
-                <br><br>
-                May Allah make your naseeb beautiful,
-                guide you towards the best paths,
-                and open doors of opportunities
-                for you wherever life takes you.
-            </div>
-
-            <div class="cursive">
-                May there always be something
-                beautiful waiting for you ahead. 🌙
-            </div>
-
-            <div class="number">03</div>
-        </div>
-    </div>
-</div>
-
-<div class="mobile-page" id="mobilePage4">
-    <div class="paper">
-        <div class="inside">
-            <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-            <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
-
-            <div class="decor">🌷 💕 ✨</div>
-
-            <div class="title">Wishing You The Best</div>
-
-            <div class="wish">
-                Some of the best memories are made
-                in the simplest moments, so I hope
-                this year gives you plenty of moments
-                that make you smile without even trying.
-                <br><br>
-                May Allah always protect you,
-                keep you healthy and peaceful,
-                and fill your life with happiness,
-                success and countless blessings.
-            </div>
-
-            <div class="cursive">
-                Wishing you happiness today,
-                tomorrow and throughout the year. ✨
-            </div>
-
-            <div class="number">04</div>
-        </div>
-    </div>
-</div>
-
-
 <!-- =================================================
      FINAL PAGE
 ================================================= -->
 
 <div class="final" id="final">
+
+    <div class="corner-design top-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+    <div class="corner-design top-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+    <div class="corner-design bottom-left"><div class="corner-dot"></div><div class="corner-glow"></div></div>
+    <div class="corner-design bottom-right"><div class="corner-dot"></div><div class="corner-glow"></div></div>
 
 
     <div class="final-decor">
@@ -2598,10 +1951,7 @@ button:active{
 
         Once Again,<br>
 
-        <span class="final-bday-line">
-            Happy Birthday Maliha!
-            <span class="final-bday-emojis">🎂✨</span>
-        </span>
+        Happy Birthday Maliha! 🎂✨
 
     </div>
 
@@ -2684,37 +2034,21 @@ const finalPage =
    ALL SCREENS
 ========================= */
 
-const mobilePage1 = document.getElementById("mobilePage1");
-const mobilePage2 = document.getElementById("mobilePage2");
-const mobilePage3 = document.getElementById("mobilePage3");
-const mobilePage4 = document.getElementById("mobilePage4");
+const screens = [
 
-let screens = [];
+    cover,
+
+    spread1,
+
+    spread2,
+
+    finalPage
+
+];
+
+
 let current = 0;
-let lastDeviceMode = null;
 
-function isPhoneLayout(){
-    return window.matchMedia("(max-width: 700px)").matches;
-}
-
-function setDeviceScreens(resetToCover = false){
-    const phone = isPhoneLayout();
-
-    if(phone !== lastDeviceMode || resetToCover){
-        lastDeviceMode = phone;
-        screens = phone
-            ? [cover, mobilePage1, mobilePage2, mobilePage3, mobilePage4, finalPage]
-            : [cover, spread1, spread2, finalPage];
-
-        if(resetToCover){
-            current = 0;
-        }else{
-            current = Math.min(current, screens.length - 1);
-        }
-
-        showScreen(current);
-    }
-}
 
 /* =========================
    SHOW SCREEN
@@ -2723,23 +2057,29 @@ function setDeviceScreens(resetToCover = false){
 function showScreen(index){
 
     screens.forEach((screen,i)=>{
+
         if(i === index){
+
             screen.classList.add("active");
-        }else{
-            screen.classList.remove("active");
+
         }
+
+        else{
+
+            screen.classList.remove("active");
+
+        }
+
     });
+
 }
+
 
 /* =========================
    INITIAL SCREEN
 ========================= */
 
-setDeviceScreens(true);
-
-window.addEventListener("resize", () => {
-    setDeviceScreens(false);
-});
+showScreen(0);
 
 
 /* =========================
