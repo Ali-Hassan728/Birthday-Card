@@ -1752,6 +1752,113 @@ button:active{
     }
 }
 
+
+/* =====================================================
+   MOBILE ONLY — FOUR CORNER FRAME
+   Only the corner decoration is changed.
+   Everything else remains untouched.
+===================================================== */
+@media (max-width:700px){
+    .mobile-page .inside{
+        position:relative;
+        overflow:hidden;
+    }
+
+    .mobile-page .corner-design{
+        display:block !important;
+        position:absolute !important;
+        width:88px !important;
+        height:88px !important;
+        margin:0 !important;
+        padding:0 !important;
+        z-index:30 !important;
+        pointer-events:none !important;
+        opacity:1 !important;
+        background:
+            radial-gradient(circle at center,
+                transparent 0 13px,
+                rgba(170,111,153,.72) 14px 17px,
+                transparent 18px 27px,
+                rgba(194,129,168,.58) 28px 31px,
+                transparent 32px 40px,
+                rgba(170,111,153,.42) 41px 44px,
+                transparent 45px);
+    }
+
+    .mobile-page .corner-design::before{
+        content:"";
+        position:absolute;
+        width:62px;
+        height:62px;
+        border:3px solid rgba(170,111,153,.70);
+        border-radius:100% 0 0 0;
+    }
+
+    .mobile-page .corner-design::after{
+        content:"";
+        position:absolute;
+        width:44px;
+        height:44px;
+        border:2px solid rgba(214,151,181,.72);
+        border-radius:100% 0 0 0;
+    }
+
+    .mobile-page .corner-dot{
+        display:block !important;
+        position:absolute;
+        width:8px;
+        height:8px;
+        border-radius:50%;
+        background:rgba(170,111,153,.75);
+        box-shadow:0 0 0 5px rgba(214,151,181,.22);
+        z-index:2;
+    }
+
+    .mobile-page .corner-glow{
+        display:none !important;
+    }
+
+    .mobile-page .corner-design.top-left{
+        top:-3px !important;
+        left:-3px !important;
+        transform:none !important;
+        transform-origin:top left !important;
+    }
+
+    .mobile-page .corner-design.top-right{
+        top:-3px !important;
+        right:-3px !important;
+        transform:rotate(90deg) !important;
+        transform-origin:top right !important;
+    }
+
+    .mobile-page .corner-design.bottom-right{
+        bottom:-3px !important;
+        right:-3px !important;
+        transform:rotate(180deg) !important;
+        transform-origin:bottom right !important;
+    }
+
+    .mobile-page .corner-design.bottom-left{
+        bottom:-3px !important;
+        left:-3px !important;
+        transform:rotate(270deg) !important;
+        transform-origin:bottom left !important;
+    }
+
+    .mobile-page .corner-design.top-left .corner-dot{
+        top:32px;
+        left:32px;
+    }
+
+    .mobile-page .corner-design.top-right .corner-dot,
+    .mobile-page .corner-design.bottom-right .corner-dot,
+    .mobile-page .corner-design.bottom-left .corner-dot{
+        top:32px;
+        left:32px;
+    }
+}
+
 </style>
 
 </head>
