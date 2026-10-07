@@ -2503,7 +2503,7 @@ let musicTimer = null;
 let musicPlaying = false;
 let melodyIndex = 0;
 
-const BPM = 82;
+const BPM = 95;
 const BEAT = 60 / BPM;
 
 const noteFrequencies = {
@@ -2528,7 +2528,7 @@ const chordProgression = [
     ["C3","E4","G4"], ["F3","A4","C5"]
 ];
 
-function tone(note, start, duration, type="triangle", volume=0.055){
+function tone(note, start, duration, type="triangle", volume=0.099){
     if(!audioContext || !musicPlaying) return;
 
     const osc = audioContext.createOscillator();
@@ -2590,14 +2590,14 @@ function schedulePhrase(){
                 t + j * 0.025,
                 BEAT * 3.75,
                 j === 0 ? "sine" : "triangle",
-                j === 0 ? 0.018 : 0.010
+                j === 0 ? 0.021 : 0.012
             );
         });
     });
 
     /* Small elegant chimes, not childish */
-    tone("G5", start + 7 * BEAT, BEAT * 0.65, "sine", 0.017);
-    tone("C6", start + 15 * BEAT, BEAT * 0.65, "sine", 0.015);
+    tone("G5", start + 7 * BEAT, BEAT * 0.65, "sine", 0.020);
+    tone("C6", start + 15 * BEAT, BEAT * 0.65, "sine", 0.018);
 
     const phraseLength = cursor * BEAT;
     musicTimer = setTimeout(schedulePhrase, phraseLength * 1000 + 120);
