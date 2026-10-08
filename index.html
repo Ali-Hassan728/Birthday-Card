@@ -2503,7 +2503,7 @@ let musicTimer = null;
 let musicPlaying = false;
 let melodyIndex = 0;
 
-const BPM = 120;
+const BPM = 110;
 const BEAT = 60 / BPM;
 
 const noteFrequencies = {
@@ -2528,7 +2528,7 @@ const chordProgression = [
     ["C3","E4","G4"], ["F3","A4","C5"]
 ];
 
-function tone(note, start, duration, type="triangle", volume=0.200){
+function tone(note, start, duration, type="triangle", volume=0.220){
     if(!audioContext || !musicPlaying) return;
 
     const osc = audioContext.createOscillator();
