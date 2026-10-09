@@ -2528,7 +2528,7 @@ const chordProgression = [
     ["C3","E4","G4"], ["F3","A4","C5"]
 ];
 
-function tone(note, start, duration, type="triangle", volume=0.220){
+function tone(note, start, duration, type="triangle", volume=0.250){
     if(!audioContext || !musicPlaying) return;
 
     const osc = audioContext.createOscillator();
